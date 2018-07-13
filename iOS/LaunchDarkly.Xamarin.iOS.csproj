@@ -105,6 +105,9 @@
     <Reference Include="LaunchDarkly.Common">
       <HintPath>..\packages\LaunchDarkly.Common.1.0.1\lib\netstandard2.0\LaunchDarkly.Common.dll</HintPath>
     </Reference>
+    <Reference Include="LaunchDarkly.Xamarin">
+      <HintPath>..\packages\LaunchDarkly.Xamarin.1.0.0-beta8\lib\netstandard2.0\LaunchDarkly.Xamarin.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -134,12 +137,6 @@
     <Compile Include="MainCollectionViewController.designer.cs">
       <DependentUpon>MainCollectionViewController.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\xamarin-client-private\src\LaunchDarkly.Xamarin\LaunchDarkly.Xamarin.csproj">
-      <Project>{99424B65-DF04-44E7-92B1-C3B2FE274130}</Project>
-      <Name>LaunchDarkly.Xamarin</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
