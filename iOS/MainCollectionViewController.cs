@@ -116,7 +116,7 @@ namespace LaunchDarkly.Xamarin.iOS
             var cell = collectionView.DequeueReusableCell("FeatureFlagCell", indexPath) as FeatureFlagCell;
             var flag = _flags[indexPath.Row];
             cell.FeatureFlagKey = flag.FlagKey;
-            cell.FlagValue = flag.FlagValue.ToString();
+            cell.FlagValue = flag.FlagValue == null ? "" : flag.FlagValue.ToString();
             return cell;
         }
 
