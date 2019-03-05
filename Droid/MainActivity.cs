@@ -6,7 +6,6 @@ using LaunchDarkly.Client;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
-using Android.Content;
 
 namespace LaunchDarkly.Xamarin.Droid
 {
@@ -45,7 +44,8 @@ namespace LaunchDarkly.Xamarin.Droid
         void SetupClient()
         {
             var user = User.WithKey(user_key);
-            client = LdClient.Init(mobileKey, user);
+            var timeSpan = TimeSpan.FromSeconds(10);
+            client = LdClient.Init(mobileKey, user, timeSpan);
             LoadFeatureFlagRows();
             RegisterFeatureFlags();
         }

@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,19 +42,19 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="Xamarin.Android.Support.Annotations">
-      <HintPath>..\packages\Xamarin.Android.Support.Annotations.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Annotations.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Android.Support.Annotations.28.0.0.1\lib\monoandroid81\Xamarin.Android.Support.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Compat">
-      <HintPath>..\packages\Xamarin.Android.Support.Compat.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Compat.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Android.Support.Compat.28.0.0.1\lib\monoandroid81\Xamarin.Android.Support.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Core.Utils">
-      <HintPath>..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Core.Utils.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.1\lib\monoandroid81\Xamarin.Android.Support.Core.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.CustomTabs">
-      <HintPath>..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.CustomTabs.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Android.Support.CustomTabs.28.0.0.1\lib\monoandroid81\Xamarin.Android.Support.CustomTabs.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Essentials">
-      <HintPath>..\packages\Xamarin.Essentials.0.6.0-preview\lib\monoandroid71\Xamarin.Essentials.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Essentials.1.0.1\lib\monoandroid81\Xamarin.Essentials.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
@@ -64,7 +63,7 @@
       <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\netstandard1.0\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
@@ -72,20 +71,29 @@
       <HintPath>..\packages\Common.Logging.3.4.1\lib\netstandard1.3\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.CurrentActivity">
-      <HintPath>..\packages\Plugin.CurrentActivity.2.1.0.2\lib\monoandroid44\Plugin.CurrentActivity.dll</HintPath>
+      <HintPath>..\packages\Plugin.CurrentActivity.2.1.0.4\lib\monoandroid44\Plugin.CurrentActivity.dll</HintPath>
     </Reference>
     <Reference Include="Java.Interop" />
     <Reference Include="Plugin.DeviceInfo">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.4.0.0.13\lib\monoandroid71\Plugin.DeviceInfo.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.4.1.1\lib\monoandroid71\Plugin.DeviceInfo.dll</HintPath>
     </Reference>
     <Reference Include="LaunchDarkly.EventSource">
-      <HintPath>..\packages\LaunchDarkly.EventSource.3.1.1\lib\netstandard1.4\LaunchDarkly.EventSource.dll</HintPath>
+      <HintPath>..\packages\LaunchDarkly.EventSource.3.2.3\lib\netstandard1.4\LaunchDarkly.EventSource.dll</HintPath>
     </Reference>
     <Reference Include="LaunchDarkly.Common">
-      <HintPath>..\packages\LaunchDarkly.Common.1.0.1\lib\netstandard2.0\LaunchDarkly.Common.dll</HintPath>
+      <HintPath>..\packages\LaunchDarkly.Common.1.2.3\lib\netstandard2.0\LaunchDarkly.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Core.Common">
+      <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.1\lib\monoandroid81\Xamarin.Android.Arch.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.Common">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.1\lib\monoandroid81\Xamarin.Android.Arch.Lifecycle.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.Runtime">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.1\lib\monoandroid81\Xamarin.Android.Arch.Lifecycle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="LaunchDarkly.Xamarin">
-      <HintPath>..\packages\LaunchDarkly.Xamarin.1.0.0-beta8\lib\netstandard2.0\LaunchDarkly.Xamarin.dll</HintPath>
+      <HintPath>..\packages\LaunchDarkly.Xamarin.1.0.0-beta15\lib\netstandard2.0\LaunchDarkly.Xamarin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -112,7 +120,12 @@
     <AndroidResource Include="Resources\layout\list_item.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets')" />
-  <Import Project="..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.Utils.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Core.Utils.targets')" />
-  <Import Project="..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets" Condition="Exists('..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Annotations.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.Annotations.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Core.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Core.Common.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Lifecycle.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Lifecycle.Common.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Lifecycle.Runtime.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.1\build\monoandroid81\Xamarin.Android.Arch.Lifecycle.Runtime.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Compat.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Compat.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.Compat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.Core.Utils.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.Core.Utils.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.CustomTabs.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.CustomTabs.targets" Condition="Exists('..\packages\Xamarin.Android.Support.CustomTabs.28.0.0.1\build\monoandroid81\Xamarin.Android.Support.CustomTabs.targets')" />
 </Project>
