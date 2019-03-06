@@ -40,7 +40,8 @@ namespace LaunchDarkly.Xamarin.iOS
         void SetupClient()
         {
             var user  = User.WithKey(user_key);
-            client = LdClient.Init(mobileKey, user);
+            var timeSpan = TimeSpan.FromSeconds(10);
+            client = LdClient.Init(mobileKey, user, timeSpan);
         }
 
         public override void ViewDidAppear(bool animated)
