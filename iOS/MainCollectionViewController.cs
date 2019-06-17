@@ -13,7 +13,7 @@ namespace LaunchDarkly.Xamarin.iOS
         ILdMobileClient client;      
 
         // enter your mobile key here
-        public const string mobileKey = "MOBILE_KEY";
+        public const string mobileKey = "";
 
         // change to or use the features flags your going to be testing with
         public const string featureFlagDefaultKey = "featureFlagThatDoesntExist";
