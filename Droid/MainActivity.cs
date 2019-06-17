@@ -17,7 +17,7 @@ namespace LaunchDarkly.Xamarin.Droid
         private ILdMobileClient client;
 
         // enter your mobile key here
-        public const string mobileKey = "";
+        public const string mobileKey = "MOBILE_KEY";
 
         // change to or use the features flags your going to be testing with
         public const string featureFlagDefaultKey = "featureFlagThatDoesntExist";
