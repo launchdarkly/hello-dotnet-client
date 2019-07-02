@@ -129,7 +129,7 @@
       <HintPath>..\packages\LaunchDarkly.CommonSdk.2.1.2\lib\netstandard2.0\LaunchDarkly.CommonSdk.dll</HintPath>
     </Reference>
     <Reference Include="LaunchDarkly.XamarinSdk">
-      <HintPath>..\packages\LaunchDarkly.XamarinSdk.1.0.0-beta17\lib\monoandroid81\LaunchDarkly.XamarinSdk.dll</HintPath>
+      <HintPath>..\packages\LaunchDarkly.XamarinSdk.1.0.0-beta18\lib\monoandroid81\LaunchDarkly.XamarinSdk.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Arch.Lifecycle.Runtime">
       <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.1\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.dll</HintPath>
