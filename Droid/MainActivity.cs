@@ -3,14 +3,13 @@ using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
 using LaunchDarkly.Client;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 
 namespace LaunchDarkly.Xamarin.Droid
 {
     [Activity(Label = "LaunchDarkly.Xamarin", MainLauncher = true, Icon = "@mipmap/icon")]
-    public class MainActivity : Activity, IFeatureFlagListener
+    public class MainActivity : Activity
     {
         private IList<FeatureFlag> _flags;
         private ListView ListView;
@@ -19,15 +18,15 @@ namespace LaunchDarkly.Xamarin.Droid
         // enter your mobile key here
         public const string mobileKey = "";
 
+        // set to the user key you want to test with
+        public const string userKey = "";
+
         // change to or use the features flags your going to be testing with
         public const string featureFlagDefaultKey = "featureFlagThatDoesntExist";
-        public const string int_feature_flag = "int-feature-flag";
-        public const string bool_feature_flag = "boolean-feature-flag";
-        public const string string_feature_flag = "string-feature-flag";
-        public const string json_feature_flag = "json-feature-flag";
-
-        // set to the user key you want to test with
-        public const string user_key = "";
+        public const string intFeatureFlag = "int-feature-flag";
+        public const string boolFeatureFlag = "boolean-feature-flag";
+        public const string stringFeatureFlag = "string-feature-flag";
+        public const string jsonFeatureFlag = "json-feature-flag";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,68 +42,49 @@ namespace LaunchDarkly.Xamarin.Droid
 
         void SetupClient()
         {
-            var user = User.WithKey(user_key);
+            var user = User.WithKey(userKey);
             var timeSpan = TimeSpan.FromSeconds(10);
             client = LdClient.Init(mobileKey, user, timeSpan);
             LoadFeatureFlagRows();
-            RegisterFeatureFlags();
+            client.FlagChanged += FeatureFlagChanged;
         }
 
         void LoadFeatureFlagRows()
         {
-            var intFlagValue = client.IntVariation(int_feature_flag, 0);
-            var intFlag = new FeatureFlag { FlagKey = int_feature_flag, FlagValue = intFlagValue };
-            var boolFlagValue = client.BoolVariation(bool_feature_flag, false);
-            var boolFlag = new FeatureFlag { FlagKey = bool_feature_flag, FlagValue = boolFlagValue };
-            var stringFlagValue = client.StringVariation(string_feature_flag, String.Empty);
-            var stringFlag = new FeatureFlag { FlagKey = string_feature_flag, FlagValue = stringFlagValue };
+            var intFlagValue = client.IntVariation(intFeatureFlag, 0);
+            var intFlag = new FeatureFlag { FlagKey = intFeatureFlag, FlagValue = intFlagValue };
+            var boolFlagValue = client.BoolVariation(boolFeatureFlag, false);
+            var boolFlag = new FeatureFlag { FlagKey = boolFeatureFlag, FlagValue = boolFlagValue };
+            var stringFlagValue = client.StringVariation(stringFeatureFlag, String.Empty);
+            var stringFlag = new FeatureFlag { FlagKey = stringFeatureFlag, FlagValue = stringFlagValue };
             var defaultFlagValue = client.FloatVariation(featureFlagDefaultKey, 0.0f);
             var defaultFlag = new FeatureFlag { FlagKey = featureFlagDefaultKey, FlagValue = defaultFlagValue };
-            var jsonFlagValue = client.JsonVariation(json_feature_flag, null);
-            var jsonFlag = new FeatureFlag { FlagKey = json_feature_flag, FlagValue = jsonFlagValue };
+            var jsonFlagValue = client.JsonVariation(jsonFeatureFlag, ImmutableJsonValue.FromJToken(null));
+            var jsonFlag = new FeatureFlag { FlagKey = jsonFeatureFlag, FlagValue = jsonFlagValue.AsJToken() };
 
             _flags = new[] { intFlag, boolFlag, stringFlag, defaultFlag, jsonFlag };
 
             ListView.Adapter = new FeatureFlagAdapter(this, _flags);
         }
 
-        void RegisterFeatureFlags()
+        public void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
         {
-            client.RegisterFeatureFlagListener(int_feature_flag, this);
-            client.RegisterFeatureFlagListener(bool_feature_flag, this);
-            client.RegisterFeatureFlagListener(string_feature_flag, this);
-            client.RegisterFeatureFlagListener(json_feature_flag, this);
-        }
-
-        #region IFeatureFlagListener
-        public void FeatureFlagChanged(string featureFlagKey, JToken value)
-        {
-            var flagFromKey = _flags.Where(p => p.FlagKey == featureFlagKey).FirstOrDefault();
+            var flagFromKey = _flags.Where(p => p.FlagKey == args.Key).FirstOrDefault();
             if (flagFromKey != null)
             {
-                flagFromKey.FlagValue = value;
-
-                RunOnUiThread(() =>
+                if (args.FlagWasDeleted)
                 {
-                    ReloadListViewAdapter();
-                });
+                    _flags.Remove(flagFromKey);
+                }
+                else
+                {
+                    flagFromKey.FlagValue = args.NewValue;
+                }
+                
+
+                ReloadListViewAdapter();
             }
         }
-
-        public void FeatureFlagDeleted(string featureFlagKey)
-        {
-            var flagFromKey = _flags.Where(p => p.FlagKey == featureFlagKey).FirstOrDefault();
-            if (flagFromKey != null)
-            {
-                _flags.Remove(flagFromKey);
-
-                RunOnUiThread(() =>
-                {
-                    ReloadListViewAdapter();  
-                });
-            }
-        }
-        #endregion
 
         private void ReloadListViewAdapter()
         {

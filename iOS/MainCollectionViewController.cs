@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LaunchDarkly.Xamarin.iOS
 {
-    public partial class MainCollectionViewController : UICollectionViewController, IFeatureFlagListener
+    public partial class MainCollectionViewController : UICollectionViewController
     {
         IList<FeatureFlag> _flags;
         ILdMobileClient client;      
@@ -49,7 +49,7 @@ namespace LaunchDarkly.Xamarin.iOS
             base.ViewDidAppear(animated);
 
             LoadFlagsIndividually();
-            RegisterFeatureFlags();
+            client.FlagChanged += FeatureFlagChanged;
         }
 
         private void SetCollectionViewLayout()
@@ -57,13 +57,6 @@ namespace LaunchDarkly.Xamarin.iOS
             var layout = CollectionView.CollectionViewLayout as UICollectionViewFlowLayout;
             layout.SectionInset = new UIEdgeInsets(10, 10, 10, 10);
             layout.ItemSize = new CoreGraphics.CGSize(View.Bounds.Width - 20, 120);
-        }
-
-        void RegisterFeatureFlags()
-        {
-            client.RegisterFeatureFlagListener(int_feature_flag, this);
-            client.RegisterFeatureFlagListener(bool_feature_flag, this);
-            client.RegisterFeatureFlagListener(string_feature_flag, this);
         }
 
         private void LoadFlagsIndividually()
@@ -76,41 +69,30 @@ namespace LaunchDarkly.Xamarin.iOS
             var stringFlag = new FeatureFlag { FlagKey = string_feature_flag, FlagValue = stringFlagValue };
             var defaultFlagValue = client.FloatVariation(featureFlagDefaultKey, 0.0f);
             var defaultFlag = new FeatureFlag { FlagKey = featureFlagDefaultKey, FlagValue = defaultFlagValue };
-            var jsonFlagValue = client.JsonVariation(json_feature_flag, null);
-            var jsonFlag = new FeatureFlag { FlagKey = json_feature_flag, FlagValue = jsonFlagValue };
+            var jsonFlagValue = client.JsonVariation(json_feature_flag, ImmutableJsonValue.FromJToken(null));
+            var jsonFlag = new FeatureFlag { FlagKey = json_feature_flag, FlagValue = jsonFlagValue.AsJToken() };
 
             _flags = new[] { intFlag, boolFlag, stringFlag, defaultFlag, jsonFlag };
 
             this.CollectionView.ReloadData();
         }
 
-        #region IFeatureFlagListener
-        public void FeatureFlagChanged(string featureFlagKey, JToken value)
+        public void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
         {
-            InvokeOnMainThread(() => { 
-                
-                var flagFromKey = _flags.SingleOrDefault(p => p.FlagKey == featureFlagKey);
-                if (flagFromKey != null)
-                {
-                    flagFromKey.FlagValue = value;
-                    this.CollectionView.ReloadData();
-                }
-            });
-        }
-
-        public void FeatureFlagDeleted(string featureFlagKey)
-        {
-            InvokeOnMainThread(() => {
-                
-                var flagFromKey = _flags.SingleOrDefault(p => p.FlagKey == featureFlagKey);
-                if (flagFromKey != null)
+            var flagFromKey = _flags.SingleOrDefault(p => p.FlagKey == args.Key);
+            if (flagFromKey != null)
+            {
+                if (args.FlagWasDeleted)
                 {
                     _flags.Remove(flagFromKey);
-                    this.CollectionView.ReloadData();
                 }
-            });
+                else
+                {
+                    flagFromKey.FlagValue = args.NewValue;
+                }
+                this.CollectionView.ReloadData();
+            }
         }
-        #endregion
 
         public override UICollectionViewCell GetCell(UICollectionView collectionView, Foundation.NSIndexPath indexPath)
         {

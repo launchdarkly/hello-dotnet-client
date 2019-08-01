@@ -126,10 +126,10 @@
       <HintPath>..\packages\LaunchDarkly.EventSource.3.3.0\lib\netstandard1.4\LaunchDarkly.EventSource.dll</HintPath>
     </Reference>
     <Reference Include="LaunchDarkly.CommonSdk">
-      <HintPath>..\packages\LaunchDarkly.CommonSdk.2.1.2\lib\netstandard2.0\LaunchDarkly.CommonSdk.dll</HintPath>
+      <HintPath>..\packages\LaunchDarkly.CommonSdk.3.0.0-beta2\lib\netstandard2.0\LaunchDarkly.CommonSdk.dll</HintPath>
     </Reference>
     <Reference Include="LaunchDarkly.XamarinSdk">
-      <HintPath>..\packages\LaunchDarkly.XamarinSdk.1.0.0-beta18\lib\monoandroid81\LaunchDarkly.XamarinSdk.dll</HintPath>
+      <HintPath>..\packages\LaunchDarkly.XamarinSdk.1.0.0-beta19\lib\monoandroid81\LaunchDarkly.XamarinSdk.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Arch.Lifecycle.Runtime">
       <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.1\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.dll</HintPath>
@@ -151,6 +151,9 @@
     </Reference>
     <Reference Include="Xamarin.Android.Support.CustomTabs">
       <HintPath>..\packages\Xamarin.Android.Support.CustomTabs.28.0.0.1\lib\monoandroid90\Xamarin.Android.Support.CustomTabs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
