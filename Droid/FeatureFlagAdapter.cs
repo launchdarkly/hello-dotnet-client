@@ -43,7 +43,7 @@ namespace LaunchDarkly.Xamarin.Droid
 
             FeatureFlag flag = featureFlags[position];
             flagKeyTextView.Text = flag.FlagKey;
-            flagValueTextView.Text = flag.FlagValue == null ? "" : flag.FlagValue.ToString();
+            flagValueTextView.Text = flag.FlagValue.IsNull ? "" : flag.FlagValue.ToString();
 
             return view;
         }

@@ -1,11 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using LaunchDarkly.Client;
 
 namespace LaunchDarkly.Xamarin.Droid
 {
     public class FeatureFlag
     {
         public string FlagKey;
-        public JToken FlagValue;
+
+        // For this demo, we'll store all of the flag values using the general-purpose LdValue type, even though
+        // we can always query flag values as a more specific type.
+        public LdValue FlagValue;
 
         public override string ToString()
         {

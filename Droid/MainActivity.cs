@@ -13,7 +13,7 @@ namespace LaunchDarkly.Xamarin.Droid
     {
         private IList<FeatureFlag> _flags;
         private ListView ListView;
-        private ILdMobileClient client;
+        private ILdClient client;
 
         // enter your mobile key here
         public const string mobileKey = "";
@@ -21,7 +21,7 @@ namespace LaunchDarkly.Xamarin.Droid
         // set to the user key you want to test with
         public const string userKey = "";
 
-        // change to or use the features flags your going to be testing with
+        // change to or use the features flags you're going to be testing with
         public const string featureFlagDefaultKey = "featureFlagThatDoesntExist";
         public const string intFeatureFlag = "int-feature-flag";
         public const string boolFeatureFlag = "boolean-feature-flag";
@@ -52,15 +52,15 @@ namespace LaunchDarkly.Xamarin.Droid
         void LoadFeatureFlagRows()
         {
             var intFlagValue = client.IntVariation(intFeatureFlag, 0);
-            var intFlag = new FeatureFlag { FlagKey = intFeatureFlag, FlagValue = intFlagValue };
+            var intFlag = new FeatureFlag { FlagKey = intFeatureFlag, FlagValue = LdValue.Of(intFlagValue) };
             var boolFlagValue = client.BoolVariation(boolFeatureFlag, false);
-            var boolFlag = new FeatureFlag { FlagKey = boolFeatureFlag, FlagValue = boolFlagValue };
+            var boolFlag = new FeatureFlag { FlagKey = boolFeatureFlag, FlagValue = LdValue.Of(boolFlagValue) };
             var stringFlagValue = client.StringVariation(stringFeatureFlag, String.Empty);
-            var stringFlag = new FeatureFlag { FlagKey = stringFeatureFlag, FlagValue = stringFlagValue };
+            var stringFlag = new FeatureFlag { FlagKey = stringFeatureFlag, FlagValue = LdValue.Of(stringFlagValue) };
             var defaultFlagValue = client.FloatVariation(featureFlagDefaultKey, 0.0f);
-            var defaultFlag = new FeatureFlag { FlagKey = featureFlagDefaultKey, FlagValue = defaultFlagValue };
-            var jsonFlagValue = client.JsonVariation(jsonFeatureFlag, ImmutableJsonValue.FromJToken(null));
-            var jsonFlag = new FeatureFlag { FlagKey = jsonFeatureFlag, FlagValue = jsonFlagValue.AsJToken() };
+            var defaultFlag = new FeatureFlag { FlagKey = featureFlagDefaultKey, FlagValue = LdValue.Of(defaultFlagValue) };
+            var jsonFlagValue = client.JsonVariation(jsonFeatureFlag, LdValue.Null);
+            var jsonFlag = new FeatureFlag { FlagKey = jsonFeatureFlag, FlagValue = jsonFlagValue };
 
             _flags = new[] { intFlag, boolFlag, stringFlag, defaultFlag, jsonFlag };
 

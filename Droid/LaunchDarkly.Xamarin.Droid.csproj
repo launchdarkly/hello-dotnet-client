@@ -59,9 +59,6 @@
       <HintPath>..\packages\Plugin.CurrentActivity.2.1.0.4\lib\monoandroid44\Plugin.CurrentActivity.dll</HintPath>
     </Reference>
     <Reference Include="Java.Interop" />
-    <Reference Include="Plugin.DeviceInfo">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.4.1.1\lib\monoandroid71\Plugin.DeviceInfo.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Arch.Core.Runtime">
       <HintPath>..\packages\Xamarin.Android.Arch.Core.Runtime.1.1.1.1\lib\monoandroid90\Xamarin.Android.Arch.Core.Runtime.dll</HintPath>
     </Reference>
@@ -122,15 +119,6 @@
     <Reference Include="Xamarin.Android.Support.Core.UI">
       <HintPath>..\packages\Xamarin.Android.Support.Core.UI.28.0.0.1\lib\monoandroid90\Xamarin.Android.Support.Core.UI.dll</HintPath>
     </Reference>
-    <Reference Include="LaunchDarkly.EventSource">
-      <HintPath>..\packages\LaunchDarkly.EventSource.3.3.0\lib\netstandard1.4\LaunchDarkly.EventSource.dll</HintPath>
-    </Reference>
-    <Reference Include="LaunchDarkly.CommonSdk">
-      <HintPath>..\packages\LaunchDarkly.CommonSdk.3.0.0-beta2\lib\netstandard2.0\LaunchDarkly.CommonSdk.dll</HintPath>
-    </Reference>
-    <Reference Include="LaunchDarkly.XamarinSdk">
-      <HintPath>..\packages\LaunchDarkly.XamarinSdk.1.0.0-beta19\lib\monoandroid81\LaunchDarkly.XamarinSdk.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Arch.Lifecycle.Runtime">
       <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.1\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.dll</HintPath>
     </Reference>
@@ -154,6 +142,15 @@
     </Reference>
     <Reference Include="System.Collections.Immutable">
       <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="LaunchDarkly.EventSource">
+      <HintPath>..\packages\LaunchDarkly.EventSource.3.3.1\lib\netstandard1.4\LaunchDarkly.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="LaunchDarkly.CommonSdk">
+      <HintPath>..\packages\LaunchDarkly.CommonSdk.4.0.1\lib\netstandard2.0\LaunchDarkly.CommonSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="LaunchDarkly.XamarinSdk">
+      <HintPath>..\packages\LaunchDarkly.XamarinSdk.1.0.0\lib\monoandroid81\LaunchDarkly.XamarinSdk.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

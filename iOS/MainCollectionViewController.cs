@@ -1,7 +1,6 @@
 using System;
 using UIKit;
 using LaunchDarkly.Client;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,20 +9,20 @@ namespace LaunchDarkly.Xamarin.iOS
     public partial class MainCollectionViewController : UICollectionViewController
     {
         IList<FeatureFlag> _flags;
-        ILdMobileClient client;      
+        ILdClient client;      
 
         // enter your mobile key here
         public const string mobileKey = "";
 
-        // change to or use the features flags your going to be testing with
+        // change to or use the features flags you're going to be testing with
         public const string featureFlagDefaultKey = "featureFlagThatDoesntExist";
-        public const string int_feature_flag = "int-feature-flag";
-        public const string bool_feature_flag = "boolean-feature-flag";
-        public const string string_feature_flag = "string-feature-flag";
-        public const string json_feature_flag = "json-feature-flag";
+        public const string intFeatureFlag = "int-feature-flag";
+        public const string boolFeatureFlag = "boolean-feature-flag";
+        public const string stringFeatureFlag = "string-feature-flag";
+        public const string jsonFeatureFlag = "json-feature-flag";
 
         // set to the user key you want to test with
-        public const string user_key = "";
+        public const string userKey = "";
 
 
         public MainCollectionViewController(IntPtr handle) : base(handle)
@@ -39,7 +38,7 @@ namespace LaunchDarkly.Xamarin.iOS
 
         void SetupClient()
         {
-            var user  = User.WithKey(user_key);
+            var user  = User.WithKey(userKey);
             var timeSpan = TimeSpan.FromSeconds(10);
             client = LdClient.Init(mobileKey, user, timeSpan);
         }
@@ -61,16 +60,16 @@ namespace LaunchDarkly.Xamarin.iOS
 
         private void LoadFlagsIndividually()
         {
-            var intFlagValue = client.IntVariation(int_feature_flag, 0);
-            var intFlag = new FeatureFlag { FlagKey = int_feature_flag, FlagValue = intFlagValue };
-            var boolFlagValue = client.BoolVariation(bool_feature_flag, false);
-            var boolFlag = new FeatureFlag { FlagKey = bool_feature_flag, FlagValue = boolFlagValue };
-            var stringFlagValue = client.StringVariation(string_feature_flag, String.Empty);
-            var stringFlag = new FeatureFlag { FlagKey = string_feature_flag, FlagValue = stringFlagValue };
+            var intFlagValue = client.IntVariation(intFeatureFlag, 0);
+            var intFlag = new FeatureFlag { FlagKey = intFeatureFlag, FlagValue = LdValue.Of(intFlagValue) };
+            var boolFlagValue = client.BoolVariation(boolFeatureFlag, false);
+            var boolFlag = new FeatureFlag { FlagKey = boolFeatureFlag, FlagValue = LdValue.Of(boolFlagValue) };
+            var stringFlagValue = client.StringVariation(stringFeatureFlag, String.Empty);
+            var stringFlag = new FeatureFlag { FlagKey = stringFeatureFlag, FlagValue = LdValue.Of(stringFlagValue) };
             var defaultFlagValue = client.FloatVariation(featureFlagDefaultKey, 0.0f);
-            var defaultFlag = new FeatureFlag { FlagKey = featureFlagDefaultKey, FlagValue = defaultFlagValue };
-            var jsonFlagValue = client.JsonVariation(json_feature_flag, ImmutableJsonValue.FromJToken(null));
-            var jsonFlag = new FeatureFlag { FlagKey = json_feature_flag, FlagValue = jsonFlagValue.AsJToken() };
+            var defaultFlag = new FeatureFlag { FlagKey = featureFlagDefaultKey, FlagValue = LdValue.Of(defaultFlagValue) };
+            var jsonFlagValue = client.JsonVariation(jsonFeatureFlag, LdValue.Null);
+            var jsonFlag = new FeatureFlag { FlagKey = jsonFeatureFlag, FlagValue = jsonFlagValue };
 
             _flags = new[] { intFlag, boolFlag, stringFlag, defaultFlag, jsonFlag };
 
@@ -99,7 +98,7 @@ namespace LaunchDarkly.Xamarin.iOS
             var cell = collectionView.DequeueReusableCell("FeatureFlagCell", indexPath) as FeatureFlagCell;
             var flag = _flags[indexPath.Row];
             cell.FeatureFlagKey = flag.FlagKey;
-            cell.FlagValue = flag.FlagValue == null ? "" : flag.FlagValue.ToString();
+            cell.FlagValue = flag.FlagValue.IsNull ? "" : flag.FlagValue.ToString();
             return cell;
         }
 
@@ -115,6 +114,9 @@ namespace LaunchDarkly.Xamarin.iOS
     public class FeatureFlag
     {
         public string FlagKey;
-        public JToken FlagValue;
+
+        // For this demo, we'll store all of the flag values using the general-purpose LdValue type, even though
+        // we can always query flag values as a more specific type.
+        public LdValue FlagValue;
     }
 }
