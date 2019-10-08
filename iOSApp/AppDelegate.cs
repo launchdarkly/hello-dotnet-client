@@ -4,7 +4,7 @@ using Foundation;
 using LaunchDarkly.Client;
 using UIKit;
 
-namespace LaunchDarkly.Xamarin.iOS
+namespace LaunchDarkly.Xamarin.Example
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.

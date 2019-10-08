@@ -5,7 +5,7 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 
-namespace LaunchDarkly.Xamarin.Droid
+namespace LaunchDarkly.Xamarin.Example
 {
     public class FeatureFlagAdapter : BaseAdapter<FeatureFlag>
     {

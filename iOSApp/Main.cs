@@ -5,7 +5,7 @@ using Common.Logging;
 using Foundation;
 using UIKit;
 
-namespace LaunchDarkly.Xamarin.iOS
+namespace LaunchDarkly.Xamarin.Example
 {
     public class Application
     {

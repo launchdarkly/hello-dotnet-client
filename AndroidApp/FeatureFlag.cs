@@ -1,6 +1,6 @@
 ﻿using LaunchDarkly.Client;
 
-namespace LaunchDarkly.Xamarin.Droid
+namespace LaunchDarkly.Xamarin.Example
 {
     public class FeatureFlag
     {
@@ -16,4 +16,3 @@ namespace LaunchDarkly.Xamarin.Droid
         }
     }
 }
-

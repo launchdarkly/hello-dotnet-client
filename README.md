@@ -1,10 +1,11 @@
-### LaunchDarkly Sample Xamarin Application
-We've built 2 applications that demonstrates how LaunchDarkly's SDK works with both iOS and Android using the Xamarin platform.
-Below, you'll find the basic build procedure, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/).
-##### Build instructions
+## LaunchDarkly Sample Xamarin Application
 
-1. Make sure you have [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed along with [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
+To demonstrate usage of the LaunchDarkly Xamarin SDK, we've built two applications that both do the same thing: one for Android and one for iOS. The only differences between them are in the platform-specific application startup code and the user interface components. The user interface could be generalized between them using Xamarin Forms, but in this case the UI is so simple (just a single text field) that it has little effect on the demo code.
+
+### Build instructions
+
+1. Make sure you have [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed. If you will be running the iOS app, you must also have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
 2. Make sure you're in this directory.
-3. Open `LaunchDarkly.Xamarin.sln` in Visual Studio for Mac.
-4. Copy the mobile key from your account settings page and the feature flag key(s) from your LaunchDarkly dashboard into the appropriate fields in your source code. For the iOS project, this is at the top of the `MainCollectionViewController` class inside `MainCollectionViewController.cs.` For the Android project, this is at the top of the `MainActivity` class inside `MainActivity.cs` class. Note that the mobile apps require the LaunchDarkly mobile key to be set in order to run.
-5. Select the platform you want to run on in Visual Studio's targeted device selector and press run.
+3. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio for Mac.
+4. Open `LaunchDarklyParameters.cs` in the `Shared` project. Set `MobileKey` and `FlagKey` to the mobile key for your LaunchDarkly environment and the key of a boolean feature flag in your environment. If you want to test feature flag targeting for different users, you can also change `UserKey` or add more properties in `DefaultUser`.
+5. Run the `AndroidApp` or `iOSApp` project in Visual Studio for Mac.
