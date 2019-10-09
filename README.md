@@ -6,7 +6,7 @@ In both applications, there is a single boolean feature flag whose on or off sta
 
 ### Build instructions
 
-1. Make sure you have [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) installed. If you will be running the iOS app, you must also have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
-2. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio for Mac.
+1. Make sure you have [Visual Studio](https://visualstudio.microsoft.com/downloads/) installed; the Android app can be run from either Windows or Mac, but the iOS app requires Mac. For Windows, you must use Visual Studio 2017 or later. For Mac, besides Visual Studio you must also have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
+2. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio.
 3. Open `LaunchDarklyParameters.cs` in the `Shared` project. Set `MobileKey` and `FlagKey` to the mobile key for your LaunchDarkly environment and the key of a boolean feature flag in your environment. If you want to test feature flag targeting for different users, you can also change `UserKey` or add more properties in `DefaultUser`.
 4. Run the `XamarinAndroidApp` or `XamarinIOSApp` project in Visual Studio for Mac.
