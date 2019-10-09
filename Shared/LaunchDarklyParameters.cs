@@ -7,7 +7,7 @@ namespace LaunchDarkly.Xamarin.Example
     public class LaunchDarklyParameters
     {
         // Enter your mobile key here - the demo will not run without this
-        public const string MobileKey = "mob-368413a0-28e1-495d-ab32-7aa389ac33b6";
+        public const string MobileKey = "";
 
         // Enter the key of a boolean feature flag in your LaunchDarkly project.
         public const string FlagKey = "test-flag";
