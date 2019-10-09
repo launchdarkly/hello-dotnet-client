@@ -17,6 +17,7 @@ namespace LaunchDarkly.Xamarin.Example
 
         // You may add any other desired user properties here
         public static readonly User DefaultUser = User.Builder(UserKey)
+            // for instance: .Name("test-user-name")
             .Build();
 
         // How long the application will wait for the SDK to connect to LaunchDarkly

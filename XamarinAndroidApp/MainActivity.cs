@@ -19,7 +19,7 @@ namespace LaunchDarkly.Xamarin.Example
 
             if (string.IsNullOrEmpty(LaunchDarklyParameters.MobileKey))
             {
-                messageView.Text = ExampleMessages.MobileKeyNotSet;
+                SetMessage(ExampleMessages.MobileKeyNotSet);
             }
             else
             {
@@ -36,15 +36,20 @@ namespace LaunchDarkly.Xamarin.Example
                 }
                 else
                 {
-                    messageView.Text = ExampleMessages.InitializationFailed;
+                    SetMessage(ExampleMessages.InitializationFailed);
                 }
             }
+        }
+
+        void SetMessage(string s)
+        {
+            messageView.Text = s;
         }
 
         void UpdateFlagValue()
         {
             var flagValue = client.BoolVariation(LaunchDarklyParameters.FlagKey, false);
-            messageView.Text = string.Format(ExampleMessages.FlagValueIs, flagValue);
+            SetMessage(string.Format(ExampleMessages.FlagValueIs, flagValue));
         }
 
         void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
