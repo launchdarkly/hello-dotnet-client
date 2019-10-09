@@ -87,7 +87,7 @@
     <Reference Include="System.Numerics.Vectors" />
     <Reference Include="System.Xml" />
     <Reference Include="Xamarin.iOS" />
-    <PackageReference Include="LaunchDarkly.XamarinSdk" Version="1.0.0" />
+    <PackageReference Include="LaunchDarkly.XamarinSdk" Version="1.*" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
