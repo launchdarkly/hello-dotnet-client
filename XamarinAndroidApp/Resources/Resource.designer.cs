@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("LaunchDarkly.Xamarin.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("LaunchDarkly.Xamarin.Example.Resource", IsApplication=true)]
 
-namespace LaunchDarkly.Xamarin.Droid
+namespace LaunchDarkly.Xamarin.Example
 {
 	
 	
@@ -26,106 +26,106 @@ namespace LaunchDarkly.Xamarin.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.font = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.font;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderAuthority = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontProviderAuthority;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderCerts = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontProviderCerts;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderFetchStrategy = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontProviderFetchStrategy;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderFetchTimeout = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontProviderFetchTimeout;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderPackage = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontProviderPackage;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderQuery = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontProviderQuery;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontStyle = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontStyle;
-			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontWeight = global::LaunchDarkly.Xamarin.Droid.Resource.Attribute.fontWeight;
-			global::LaunchDarkly.XamarinSdk.Resource.Color.notification_action_color_filter = global::LaunchDarkly.Xamarin.Droid.Resource.Color.notification_action_color_filter;
-			global::LaunchDarkly.XamarinSdk.Resource.Color.notification_icon_bg_color = global::LaunchDarkly.Xamarin.Droid.Resource.Color.notification_icon_bg_color;
-			global::LaunchDarkly.XamarinSdk.Resource.Color.ripple_material_light = global::LaunchDarkly.Xamarin.Droid.Resource.Color.ripple_material_light;
-			global::LaunchDarkly.XamarinSdk.Resource.Color.secondary_text_default_material_light = global::LaunchDarkly.Xamarin.Droid.Resource.Color.secondary_text_default_material_light;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_inset_horizontal_material = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_inset_vertical_material = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.compat_button_inset_vertical_material;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_padding_horizontal_material = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_padding_vertical_material = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.compat_button_padding_vertical_material;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_control_corner_material = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.compat_control_corner_material;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_action_icon_size = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_action_icon_size;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_action_text_size = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_action_text_size;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_big_circle_margin = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_big_circle_margin;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_content_margin_start = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_content_margin_start;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_large_icon_height = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_large_icon_height;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_large_icon_width = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_large_icon_width;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_main_column_padding_top = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_main_column_padding_top;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_media_narrow_margin = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_media_narrow_margin;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_right_icon_size = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_right_icon_size;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_right_side_padding_top = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_right_side_padding_top;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_small_icon_background_padding = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_small_icon_background_padding;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_small_icon_size_as_large = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_small_icon_size_as_large;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_subtext_size = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_subtext_size;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_top_pad = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_top_pad;
-			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_top_pad_large_text = global::LaunchDarkly.Xamarin.Droid.Resource.Dimension.notification_top_pad_large_text;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_action_background = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_action_background;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_bg;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_low = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_bg_low;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_low_normal = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_bg_low_normal;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_low_pressed = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_bg_low_pressed;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_normal = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_bg_normal;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_normal_pressed = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_bg_normal_pressed;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_icon_background = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_icon_background;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_template_icon_bg = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_template_icon_bg;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_template_icon_low_bg = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_template_icon_low_bg;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_tile_bg = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notification_tile_bg;
-			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notify_panel_notification_icon_bg = global::LaunchDarkly.Xamarin.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.action_container = global::LaunchDarkly.Xamarin.Droid.Resource.Id.action_container;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.action_divider = global::LaunchDarkly.Xamarin.Droid.Resource.Id.action_divider;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.action_image = global::LaunchDarkly.Xamarin.Droid.Resource.Id.action_image;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.action_text = global::LaunchDarkly.Xamarin.Droid.Resource.Id.action_text;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.actions = global::LaunchDarkly.Xamarin.Droid.Resource.Id.actions;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.async = global::LaunchDarkly.Xamarin.Droid.Resource.Id.async;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.blocking = global::LaunchDarkly.Xamarin.Droid.Resource.Id.blocking;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.chronometer = global::LaunchDarkly.Xamarin.Droid.Resource.Id.chronometer;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.forever = global::LaunchDarkly.Xamarin.Droid.Resource.Id.forever;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.icon = global::LaunchDarkly.Xamarin.Droid.Resource.Id.icon;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.icon_group = global::LaunchDarkly.Xamarin.Droid.Resource.Id.icon_group;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.info = global::LaunchDarkly.Xamarin.Droid.Resource.Id.info;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.italic = global::LaunchDarkly.Xamarin.Droid.Resource.Id.italic;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.line1 = global::LaunchDarkly.Xamarin.Droid.Resource.Id.line1;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.line3 = global::LaunchDarkly.Xamarin.Droid.Resource.Id.line3;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.normal = global::LaunchDarkly.Xamarin.Droid.Resource.Id.normal;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.notification_background = global::LaunchDarkly.Xamarin.Droid.Resource.Id.notification_background;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.notification_main_column = global::LaunchDarkly.Xamarin.Droid.Resource.Id.notification_main_column;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.notification_main_column_container = global::LaunchDarkly.Xamarin.Droid.Resource.Id.notification_main_column_container;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.right_icon = global::LaunchDarkly.Xamarin.Droid.Resource.Id.right_icon;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.right_side = global::LaunchDarkly.Xamarin.Droid.Resource.Id.right_side;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.tag_transition_group = global::LaunchDarkly.Xamarin.Droid.Resource.Id.tag_transition_group;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.text = global::LaunchDarkly.Xamarin.Droid.Resource.Id.text;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.text2 = global::LaunchDarkly.Xamarin.Droid.Resource.Id.text2;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.time = global::LaunchDarkly.Xamarin.Droid.Resource.Id.time;
-			global::LaunchDarkly.XamarinSdk.Resource.Id.title = global::LaunchDarkly.Xamarin.Droid.Resource.Id.title;
-			global::LaunchDarkly.XamarinSdk.Resource.Integer.status_bar_notification_info_maxnum = global::LaunchDarkly.Xamarin.Droid.Resource.Integer.status_bar_notification_info_maxnum;
-			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_action = global::LaunchDarkly.Xamarin.Droid.Resource.Layout.notification_action;
-			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_action_tombstone = global::LaunchDarkly.Xamarin.Droid.Resource.Layout.notification_action_tombstone;
-			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_custom_big = global::LaunchDarkly.Xamarin.Droid.Resource.Layout.notification_template_custom_big;
-			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_icon_group = global::LaunchDarkly.Xamarin.Droid.Resource.Layout.notification_template_icon_group;
-			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_part_chronometer = global::LaunchDarkly.Xamarin.Droid.Resource.Layout.notification_template_part_chronometer;
-			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_part_time = global::LaunchDarkly.Xamarin.Droid.Resource.Layout.notification_template_part_time;
-			global::LaunchDarkly.XamarinSdk.Resource.String.status_bar_notification_info_overflow = global::LaunchDarkly.Xamarin.Droid.Resource.String.status_bar_notification_info_overflow;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification = global::LaunchDarkly.Xamarin.Droid.Resource.Style.TextAppearance_Compat_Notification;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Info = global::LaunchDarkly.Xamarin.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::LaunchDarkly.Xamarin.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Time = global::LaunchDarkly.Xamarin.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Title = global::LaunchDarkly.Xamarin.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.Widget_Compat_NotificationActionContainer = global::LaunchDarkly.Xamarin.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::LaunchDarkly.XamarinSdk.Resource.Style.Widget_Compat_NotificationActionText = global::LaunchDarkly.Xamarin.Droid.Resource.Style.Widget_Compat_NotificationActionText;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderAuthority = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderCerts = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderPackage = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderQuery = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_android_font = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont_android_font;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_android_fontStyle = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_android_fontWeight = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_font = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont_font;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_fontStyle = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_fontWeight = global::LaunchDarkly.Xamarin.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.font = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.font;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderAuthority = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontProviderAuthority;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderCerts = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontProviderCerts;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderFetchStrategy = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontProviderFetchStrategy;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderFetchTimeout = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontProviderFetchTimeout;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderPackage = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontProviderPackage;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontProviderQuery = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontProviderQuery;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontStyle = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontStyle;
+			global::LaunchDarkly.XamarinSdk.Resource.Attribute.fontWeight = global::LaunchDarkly.Xamarin.Example.Resource.Attribute.fontWeight;
+			global::LaunchDarkly.XamarinSdk.Resource.Color.notification_action_color_filter = global::LaunchDarkly.Xamarin.Example.Resource.Color.notification_action_color_filter;
+			global::LaunchDarkly.XamarinSdk.Resource.Color.notification_icon_bg_color = global::LaunchDarkly.Xamarin.Example.Resource.Color.notification_icon_bg_color;
+			global::LaunchDarkly.XamarinSdk.Resource.Color.ripple_material_light = global::LaunchDarkly.Xamarin.Example.Resource.Color.ripple_material_light;
+			global::LaunchDarkly.XamarinSdk.Resource.Color.secondary_text_default_material_light = global::LaunchDarkly.Xamarin.Example.Resource.Color.secondary_text_default_material_light;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_inset_horizontal_material = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_inset_vertical_material = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.compat_button_inset_vertical_material;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_padding_horizontal_material = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_button_padding_vertical_material = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.compat_button_padding_vertical_material;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.compat_control_corner_material = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.compat_control_corner_material;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_action_icon_size = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_action_icon_size;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_action_text_size = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_action_text_size;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_big_circle_margin = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_big_circle_margin;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_content_margin_start = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_content_margin_start;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_large_icon_height = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_large_icon_height;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_large_icon_width = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_large_icon_width;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_main_column_padding_top = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_main_column_padding_top;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_media_narrow_margin = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_media_narrow_margin;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_right_icon_size = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_right_icon_size;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_right_side_padding_top = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_right_side_padding_top;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_small_icon_background_padding = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_small_icon_background_padding;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_small_icon_size_as_large = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_small_icon_size_as_large;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_subtext_size = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_subtext_size;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_top_pad = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_top_pad;
+			global::LaunchDarkly.XamarinSdk.Resource.Dimension.notification_top_pad_large_text = global::LaunchDarkly.Xamarin.Example.Resource.Dimension.notification_top_pad_large_text;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_action_background = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_action_background;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_bg;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_low = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_bg_low;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_low_normal = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_bg_low_normal;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_low_pressed = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_bg_low_pressed;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_normal = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_bg_normal;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_bg_normal_pressed = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_bg_normal_pressed;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_icon_background = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_icon_background;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_template_icon_bg = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_template_icon_bg;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_template_icon_low_bg = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_template_icon_low_bg;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notification_tile_bg = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notification_tile_bg;
+			global::LaunchDarkly.XamarinSdk.Resource.Drawable.notify_panel_notification_icon_bg = global::LaunchDarkly.Xamarin.Example.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.action_container = global::LaunchDarkly.Xamarin.Example.Resource.Id.action_container;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.action_divider = global::LaunchDarkly.Xamarin.Example.Resource.Id.action_divider;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.action_image = global::LaunchDarkly.Xamarin.Example.Resource.Id.action_image;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.action_text = global::LaunchDarkly.Xamarin.Example.Resource.Id.action_text;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.actions = global::LaunchDarkly.Xamarin.Example.Resource.Id.actions;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.async = global::LaunchDarkly.Xamarin.Example.Resource.Id.async;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.blocking = global::LaunchDarkly.Xamarin.Example.Resource.Id.blocking;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.chronometer = global::LaunchDarkly.Xamarin.Example.Resource.Id.chronometer;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.forever = global::LaunchDarkly.Xamarin.Example.Resource.Id.forever;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.icon = global::LaunchDarkly.Xamarin.Example.Resource.Id.icon;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.icon_group = global::LaunchDarkly.Xamarin.Example.Resource.Id.icon_group;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.info = global::LaunchDarkly.Xamarin.Example.Resource.Id.info;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.italic = global::LaunchDarkly.Xamarin.Example.Resource.Id.italic;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.line1 = global::LaunchDarkly.Xamarin.Example.Resource.Id.line1;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.line3 = global::LaunchDarkly.Xamarin.Example.Resource.Id.line3;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.normal = global::LaunchDarkly.Xamarin.Example.Resource.Id.normal;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.notification_background = global::LaunchDarkly.Xamarin.Example.Resource.Id.notification_background;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.notification_main_column = global::LaunchDarkly.Xamarin.Example.Resource.Id.notification_main_column;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.notification_main_column_container = global::LaunchDarkly.Xamarin.Example.Resource.Id.notification_main_column_container;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.right_icon = global::LaunchDarkly.Xamarin.Example.Resource.Id.right_icon;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.right_side = global::LaunchDarkly.Xamarin.Example.Resource.Id.right_side;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.tag_transition_group = global::LaunchDarkly.Xamarin.Example.Resource.Id.tag_transition_group;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.text = global::LaunchDarkly.Xamarin.Example.Resource.Id.text;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.text2 = global::LaunchDarkly.Xamarin.Example.Resource.Id.text2;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.time = global::LaunchDarkly.Xamarin.Example.Resource.Id.time;
+			global::LaunchDarkly.XamarinSdk.Resource.Id.title = global::LaunchDarkly.Xamarin.Example.Resource.Id.title;
+			global::LaunchDarkly.XamarinSdk.Resource.Integer.status_bar_notification_info_maxnum = global::LaunchDarkly.Xamarin.Example.Resource.Integer.status_bar_notification_info_maxnum;
+			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_action = global::LaunchDarkly.Xamarin.Example.Resource.Layout.notification_action;
+			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_action_tombstone = global::LaunchDarkly.Xamarin.Example.Resource.Layout.notification_action_tombstone;
+			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_custom_big = global::LaunchDarkly.Xamarin.Example.Resource.Layout.notification_template_custom_big;
+			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_icon_group = global::LaunchDarkly.Xamarin.Example.Resource.Layout.notification_template_icon_group;
+			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_part_chronometer = global::LaunchDarkly.Xamarin.Example.Resource.Layout.notification_template_part_chronometer;
+			global::LaunchDarkly.XamarinSdk.Resource.Layout.notification_template_part_time = global::LaunchDarkly.Xamarin.Example.Resource.Layout.notification_template_part_time;
+			global::LaunchDarkly.XamarinSdk.Resource.String.status_bar_notification_info_overflow = global::LaunchDarkly.Xamarin.Example.Resource.String.status_bar_notification_info_overflow;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification = global::LaunchDarkly.Xamarin.Example.Resource.Style.TextAppearance_Compat_Notification;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Info = global::LaunchDarkly.Xamarin.Example.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::LaunchDarkly.Xamarin.Example.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Time = global::LaunchDarkly.Xamarin.Example.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.TextAppearance_Compat_Notification_Title = global::LaunchDarkly.Xamarin.Example.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.Widget_Compat_NotificationActionContainer = global::LaunchDarkly.Xamarin.Example.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::LaunchDarkly.XamarinSdk.Resource.Style.Widget_Compat_NotificationActionText = global::LaunchDarkly.Xamarin.Example.Resource.Style.Widget_Compat_NotificationActionText;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderAuthority = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderCerts = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderPackage = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamily_fontProviderQuery = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_android_font = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont_android_font;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_android_fontStyle = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_android_fontWeight = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_font = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont_font;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_fontStyle = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::LaunchDarkly.XamarinSdk.Resource.Styleable.FontFamilyFont_fontWeight = global::LaunchDarkly.Xamarin.Example.Resource.Styleable.FontFamilyFont_fontWeight;
 		}
 		
 		public partial class Attribute
@@ -379,28 +379,22 @@ namespace LaunchDarkly.Xamarin.Droid
 		{
 			
 			// aapt resource value: 0x7f090022
-			public const int FeatureFlagKeyTextView = 2131296290;
+			public const int MessageView = 2131296290;
 			
 			// aapt resource value: 0x7f090023
-			public const int FeatureFlagValueTextView = 2131296291;
+			public const int action_container = 2131296291;
+			
+			// aapt resource value: 0x7f09002f
+			public const int action_divider = 2131296303;
 			
 			// aapt resource value: 0x7f090024
-			public const int MainListView = 2131296292;
+			public const int action_image = 2131296292;
 			
 			// aapt resource value: 0x7f090025
-			public const int action_container = 2131296293;
+			public const int action_text = 2131296293;
 			
-			// aapt resource value: 0x7f090031
-			public const int action_divider = 2131296305;
-			
-			// aapt resource value: 0x7f090026
-			public const int action_image = 2131296294;
-			
-			// aapt resource value: 0x7f090027
-			public const int action_text = 2131296295;
-			
-			// aapt resource value: 0x7f090032
-			public const int actions = 2131296306;
+			// aapt resource value: 0x7f090030
+			public const int actions = 2131296304;
 			
 			// aapt resource value: 0x7f090017
 			public const int all = 2131296279;
@@ -438,8 +432,8 @@ namespace LaunchDarkly.Xamarin.Droid
 			// aapt resource value: 0x7f09000b
 			public const int center_vertical = 2131296267;
 			
-			// aapt resource value: 0x7f090030
-			public const int chronometer = 2131296304;
+			// aapt resource value: 0x7f09002e
+			public const int chronometer = 2131296302;
 			
 			// aapt resource value: 0x7f09000c
 			public const int clip_horizontal = 2131296268;
@@ -462,14 +456,14 @@ namespace LaunchDarkly.Xamarin.Droid
 			// aapt resource value: 0x7f09001a
 			public const int forever = 2131296282;
 			
-			// aapt resource value: 0x7f090029
-			public const int icon = 2131296297;
+			// aapt resource value: 0x7f090027
+			public const int icon = 2131296295;
 			
-			// aapt resource value: 0x7f090033
-			public const int icon_group = 2131296307;
+			// aapt resource value: 0x7f090031
+			public const int icon_group = 2131296305;
 			
-			// aapt resource value: 0x7f09002c
-			public const int info = 2131296300;
+			// aapt resource value: 0x7f09002a
+			public const int info = 2131296298;
 			
 			// aapt resource value: 0x7f09001b
 			public const int italic = 2131296283;
@@ -489,23 +483,23 @@ namespace LaunchDarkly.Xamarin.Droid
 			// aapt resource value: 0x7f09001c
 			public const int normal = 2131296284;
 			
-			// aapt resource value: 0x7f09002e
-			public const int notification_background = 2131296302;
-			
-			// aapt resource value: 0x7f09002a
-			public const int notification_main_column = 2131296298;
+			// aapt resource value: 0x7f09002c
+			public const int notification_background = 2131296300;
 			
 			// aapt resource value: 0x7f090028
-			public const int notification_main_column_container = 2131296296;
+			public const int notification_main_column = 2131296296;
+			
+			// aapt resource value: 0x7f090026
+			public const int notification_main_column_container = 2131296294;
 			
 			// aapt resource value: 0x7f090013
 			public const int right = 2131296275;
 			
-			// aapt resource value: 0x7f09002d
-			public const int right_icon = 2131296301;
-			
 			// aapt resource value: 0x7f09002b
-			public const int right_side = 2131296299;
+			public const int right_icon = 2131296299;
+			
+			// aapt resource value: 0x7f090029
+			public const int right_side = 2131296297;
 			
 			// aapt resource value: 0x7f090014
 			public const int start = 2131296276;
@@ -525,8 +519,8 @@ namespace LaunchDarkly.Xamarin.Droid
 			// aapt resource value: 0x7f090006
 			public const int text2 = 2131296262;
 			
-			// aapt resource value: 0x7f09002f
-			public const int time = 2131296303;
+			// aapt resource value: 0x7f09002d
+			public const int time = 2131296301;
 			
 			// aapt resource value: 0x7f090007
 			public const int title = 2131296263;
@@ -570,28 +564,25 @@ namespace LaunchDarkly.Xamarin.Droid
 			public const int browser_actions_context_menu_row = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int list_item = 2130968578;
+			public const int Main = 2130968578;
 			
 			// aapt resource value: 0x7f040003
-			public const int Main = 2130968579;
+			public const int notification_action = 2130968579;
 			
 			// aapt resource value: 0x7f040004
-			public const int notification_action = 2130968580;
+			public const int notification_action_tombstone = 2130968580;
 			
 			// aapt resource value: 0x7f040005
-			public const int notification_action_tombstone = 2130968581;
+			public const int notification_template_custom_big = 2130968581;
 			
 			// aapt resource value: 0x7f040006
-			public const int notification_template_custom_big = 2130968582;
+			public const int notification_template_icon_group = 2130968582;
 			
 			// aapt resource value: 0x7f040007
-			public const int notification_template_icon_group = 2130968583;
+			public const int notification_template_part_chronometer = 2130968583;
 			
 			// aapt resource value: 0x7f040008
-			public const int notification_template_part_chronometer = 2130968584;
-			
-			// aapt resource value: 0x7f040009
-			public const int notification_template_part_time = 2130968585;
+			public const int notification_template_part_time = 2130968584;
 			
 			static Layout()
 			{
