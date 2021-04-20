@@ -34,7 +34,7 @@ jobs:
             sed -i.bak "s/FeatureFlagKey *= *\".*\"/FeatureFlagKey = \"${LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE}\"/" ./Shared/DemoParameters.cs
       - run:
           name: get latest SDK version
-          command: dotnet add XamarinConsoleApp package LaunchDarkly.ServerSdk
+          command: dotnet add XamarinConsoleApp package LaunchDarkly.XamarinSdk
       - run:
           name: build demo
           command: dotnet build XamarinConsoleApp
