@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace LaunchDarkly.Xamarin.Example
+namespace LaunchDarkly.Hello
 {
     [Register ("MainCollectionViewController")]
     partial class MainCollectionViewController

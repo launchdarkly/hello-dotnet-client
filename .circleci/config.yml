@@ -1,0 +1,45 @@
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+    - build-run-linux:
+        context: hello-world-demos
+
+  test-daily:
+    triggers:
+    - schedule:
+        cron: "0 6 * * *"
+        filters:
+          branches:
+            only: master
+    jobs:
+    - build-run-linux:
+        context: hello-world-demos
+
+# This CI build ensures that the demo both compiles and works correctly. For the runtime test,
+# we use an SDK key and flag key that are passed in via the CircleCI project configuration;
+# the flag is configured to return a true value.
+
+jobs:
+  build-run-linux:
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:2.1-focal
+    steps:
+      - checkout
+      - run:
+          name: insert SDK key and flag key into demo code
+          command: |
+            sed -i.bak "s/MobileKey *= *\".*\"/MobileKey = \"${LD_HELLO_WORLD_MOBILE_KEY}\"/" ./Shared/DemoParameters.cs
+            sed -i.bak "s/FeatureFlagKey *= *\".*\"/FeatureFlagKey = \"${LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE}\"/" ./Shared/DemoParameters.cs
+      - run:
+          name: get latest SDK version
+          command: dotnet add XamarinConsoleApp package LaunchDarkly.ServerSdk
+      - run:
+          name: build demo
+          command: dotnet build XamarinConsoleApp
+      - run:
+          name: run demo
+          command: |
+            dotnet run --project XamarinConsoleApp | tee output.txt
+            grep "is True for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
