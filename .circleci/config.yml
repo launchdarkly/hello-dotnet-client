@@ -32,17 +32,17 @@ jobs:
       - image: mcr.microsoft.com/dotnet/core/sdk:2.1-focal
     steps:
       - checkout
+
       - run:
           name: insert SDK key and flag key into demo code
           command: |
             sed -i.bak "s/MobileKey *= *\".*\"/MobileKey = \"${LD_HELLO_WORLD_MOBILE_KEY}\"/" ./Shared/DemoParameters.cs
             sed -i.bak "s/FeatureFlagKey *= *\".*\"/FeatureFlagKey = \"${LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE}\"/" ./Shared/DemoParameters.cs
-      - run:
-          name: get latest SDK version
-          command: dotnet add XamarinConsoleApp package LaunchDarkly.XamarinSdk
+      
       - run:
           name: build demo
           command: dotnet build XamarinConsoleApp
+      
       - run:
           name: run demo
           command: |
