@@ -5,6 +5,7 @@ workflows:
     jobs:
     - build-run-linux:
         context: hello-world-demos
+    - build-macos
 
   test-daily:
     triggers:
@@ -16,10 +17,14 @@ workflows:
     jobs:
     - build-run-linux:
         context: hello-world-demos
+    - build-macos
 
 # This CI build ensures that the demo both compiles and works correctly. For the runtime test,
 # we use a mobile key and flag key that are passed in via the CircleCI project configuration;
 # the flag is configured to return a true value.
+#
+# XamarinConsoleApp is the only version of the demo that we are both building and running in
+# CI. XamarinAndroidApp and XamarinIOsApp are built, but are not run.
 
 jobs:
   build-run-linux:
@@ -27,19 +32,57 @@ jobs:
       - image: mcr.microsoft.com/dotnet/core/sdk:2.1-focal
     steps:
       - checkout
+
       - run:
           name: insert SDK key and flag key into demo code
           command: |
             sed -i.bak "s/MobileKey *= *\".*\"/MobileKey = \"${LD_HELLO_WORLD_MOBILE_KEY}\"/" ./Shared/DemoParameters.cs
             sed -i.bak "s/FeatureFlagKey *= *\".*\"/FeatureFlagKey = \"${LD_HELLO_WORLD_FLAG_KEY_WITH_TRUE_VALUE}\"/" ./Shared/DemoParameters.cs
-      - run:
-          name: get latest SDK version
-          command: dotnet add XamarinConsoleApp package LaunchDarkly.XamarinSdk
+      
       - run:
           name: build demo
           command: dotnet build XamarinConsoleApp
+      
       - run:
           name: run demo
           command: |
             dotnet run --project XamarinConsoleApp | tee output.txt
             grep "is True for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
+
+  build-macos:
+    macos: # We're using a Mac host because that's the only way to build for Xamarin iOS
+      xcode: "12.4.0"
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install .NET/Xamarin build tools
+          command: ./.circleci/macos-install-xamarin.sh android ios
+
+      - run:
+          name: Install Android SDK
+          command: ./.circleci/macos-install-android-sdk.sh 28  # demo app currently uses Android 9.0 = API 28
+
+      # Note that the dotnet CLI command can't be used with Xamarin projects; we must use msbuild
+      - run:
+          name: Build XamarinAndroidApp
+          command: msbuild /restore /p:Configuration=Debug XamarinAndroidApp/XamarinAndroidApp.csproj
+
+      - run:
+          name: Pre-build storyboard for iOS app
+          # This step is a workaround for a problem we've encountered in trying to build Xamarin iOS
+          # projects in the CI environment. For unknown reasons, ibtool can fail during the project
+          # build with the error "Requested but did not find required plug-in with identifier
+          # com.apple.rc.RCIDESupportCore" unless we have first invoked the exact same ibtool
+          # command separately like this. The error does not occur in regular local builds.
+          command: >-
+            /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format xml1 --minimum-deployment-target 10.0
+            --target-device iphone --target-device ipad --auto-activate-custom-fonts
+            --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.4.sdk
+            --compilation-directory /Users/distiller/project/XamarinIOSApp/obj/iPhoneSimulator/Debug/xamarin.ios10/ibtool
+            /Users/distiller/project/XamarinIOSApp/LaunchScreen.storyboard
+
+      - run:
+          name: Build XamarinIOsApp
+          command: msbuild /restore /p:Configuration=Debug XamarinIOsApp/XamarinIOsApp.csproj
