@@ -24,8 +24,7 @@ workflows:
 # the flag is configured to return a true value.
 #
 # XamarinConsoleApp is the only version of the demo that we are both building and running in
-# CI. XamarinAndroidApp and XamarinIOsApp are built (to ensure that we haven't completely
-# broken the demo code), but are not run.
+# CI. XamarinAndroidApp and XamarinIOsApp are built, but are not run.
 
 jobs:
   build-run-linux:
