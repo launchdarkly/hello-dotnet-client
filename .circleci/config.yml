@@ -61,6 +61,10 @@ jobs:
           name: Install .NET/Xamarin build tools
           command: ./.circleci/macos-install-xamarin.sh android ios
 
+      - run:
+          name: Install Android SDK
+          command: ./.circleci/macos-install-android-sdk.sh 28  # demo app currently uses Android 9.0 = API 28
+
       # Note that the dotnet CLI command can't be used with Xamarin projects; we must use msbuild
       - run:
           name: Build XamarinAndroidApp
