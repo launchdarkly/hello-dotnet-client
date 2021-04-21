@@ -18,7 +18,7 @@ workflows:
         context: hello-world-demos
 
 # This CI build ensures that the demo both compiles and works correctly. For the runtime test,
-# we use an SDK key and flag key that are passed in via the CircleCI project configuration;
+# we use a mobile key and flag key that are passed in via the CircleCI project configuration;
 # the flag is configured to return a true value.
 
 jobs:
