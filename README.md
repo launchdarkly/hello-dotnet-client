@@ -28,11 +28,9 @@ If you leave the app running and use your LaunchDarkly dashboard to turn the fla
 
 ## Instructions for .NET Core (console)
 
-1. To ensure that you are using the latest version of the SDK, run `dotnet add XamarinConsoleApp package LaunchDarkly.XamarinSdk` (or, use "Manage NuGet Packages" in Visual Studio to update the `LaunchDarkly.XamarinSdk` package in the `XamarinConsoleApp` project).
+1. Edit `Shared/DemoParameters` as described above.
 
-2. Edit `Shared/DemoParameters` as described above.
-
-3. If you are using Visual Studio, open `LaunchDarkly.HelloXamarin.sln` and run the `XamarinConsoleApp` project. Or, to run from the command line, type the following command:
+2. If you are using Visual Studio, open `LaunchDarkly.HelloXamarin.sln` and run the `XamarinConsoleApp` project. Or, to run from the command line, type the following command:
 
 ```
     dotnet run --project XamarinConsoleApp
