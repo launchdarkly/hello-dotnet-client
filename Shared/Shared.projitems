@@ -9,7 +9,7 @@
     <Import_RootNamespace>Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)LaunchDarklyParameters.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ExampleMessages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DemoParameters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DemoMessages.cs" />
   </ItemGroup>
 </Project>

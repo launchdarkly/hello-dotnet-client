@@ -6,7 +6,7 @@
     <ProjectGuid>{282F0C33-35AA-4926-B097-DBD79B68B9AF}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LaunchDarkly.Xamarin.Example</RootNamespace>
+    <RootNamespace>LaunchDarkly.Hello</RootNamespace>
     <AssemblyName>LaunchDarkly.Xamarin.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>

@@ -1,11 +1,14 @@
 using System;
 using UIKit;
-using LaunchDarkly.Client;
-using System.Collections.Generic;
-using System.Linq;
+using LaunchDarkly.Xamarin;
 
-namespace LaunchDarkly.Xamarin.Example
+namespace LaunchDarkly.Hello
 {
+    // This is the iOS version of the LaunchDarkly Xamarin SDK demo. The non-platform-specific
+    // classes DemoMessages and DemoParameters are defined in ../Shared.
+
+    // This file implements the application UI and demonstrates usage of the LaunchDarkly SDK.
+
     public partial class MainCollectionViewController : UIViewController
     {
         ILdClient client;
@@ -17,18 +20,16 @@ namespace LaunchDarkly.Xamarin.Example
         {
             base.ViewDidLoad();
 
-            
-            if (string.IsNullOrEmpty(LaunchDarklyParameters.MobileKey))
+            if (string.IsNullOrEmpty(DemoParameters.MobileKey))
             {
-                SetMessage(ExampleMessages.MobileKeyNotSet);
+                SetMessage(DemoMessages.MobileKeyNotSet);
             }
             else
             {
                 client = LdClient.Init(
-                    // These values are set in the Shared project
-                    LaunchDarklyParameters.MobileKey,
-                    LaunchDarklyParameters.DefaultUser,
-                    LaunchDarklyParameters.SDKTimeout
+                    DemoParameters.MobileKey,
+                    DemoParameters.MakeDemoUser(),
+                    DemoParameters.SDKTimeout
                 );
                 if (client.Initialized)
                 {
@@ -37,7 +38,7 @@ namespace LaunchDarkly.Xamarin.Example
                 }
                 else
                 {
-                    SetMessage(ExampleMessages.InitializationFailed);
+                    SetMessage(DemoMessages.InitializationFailed);
                 }
             }
         }
@@ -54,13 +55,13 @@ namespace LaunchDarkly.Xamarin.Example
 
         void UpdateFlagValue()
         {
-            var flagValue = client.BoolVariation(LaunchDarklyParameters.FlagKey, false);
-            SetMessage(string.Format(ExampleMessages.FlagValueIs, flagValue));
+            var flagValue = client.BoolVariation(DemoParameters.FeatureFlagKey, false);
+            SetMessage(string.Format(DemoMessages.FlagValueIs, DemoParameters.FeatureFlagKey, flagValue));
         }
 
         void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
         {
-            if (args.Key == LaunchDarklyParameters.FlagKey)
+            if (args.Key == DemoParameters.FeatureFlagKey)
             {
                 UpdateFlagValue();
             }

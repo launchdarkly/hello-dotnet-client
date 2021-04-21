@@ -1,9 +1,15 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using LaunchDarkly.Xamarin;
 
-namespace LaunchDarkly.Xamarin.Example
+namespace LaunchDarkly.Hello
 {
+    // This is the Android version of the LaunchDarkly Xamarin SDK demo. The non-platform-specific
+    // classes DemoMessages and DemoParameters are defined in ../Shared.
+
+    // This file implements the application UI and demonstrates usage of the LaunchDarkly SDK.
+
     [Activity(Label = "LaunchDarkly.Xamarin", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
@@ -17,17 +23,17 @@ namespace LaunchDarkly.Xamarin.Example
             SetContentView(Resource.Layout.Main);
             messageView = FindViewById<TextView>(Resource.Id.MessageView);
 
-            if (string.IsNullOrEmpty(LaunchDarklyParameters.MobileKey))
+            if (string.IsNullOrEmpty(DemoParameters.MobileKey))
             {
-                SetMessage(ExampleMessages.MobileKeyNotSet);
+                SetMessage(DemoMessages.MobileKeyNotSet);
             }
             else
             {
                 client = LdClient.Init(
                     // These values are set in the Shared project
-                    LaunchDarklyParameters.MobileKey,
-                    LaunchDarklyParameters.DefaultUser,
-                    LaunchDarklyParameters.SDKTimeout
+                    DemoParameters.MobileKey,
+                    DemoParameters.MakeDemoUser(),
+                    DemoParameters.SDKTimeout
                 );
                 if (client.Initialized)
                 {
@@ -36,7 +42,7 @@ namespace LaunchDarkly.Xamarin.Example
                 }
                 else
                 {
-                    SetMessage(ExampleMessages.InitializationFailed);
+                    SetMessage(DemoMessages.InitializationFailed);
                 }
             }
         }
@@ -48,13 +54,13 @@ namespace LaunchDarkly.Xamarin.Example
 
         void UpdateFlagValue()
         {
-            var flagValue = client.BoolVariation(LaunchDarklyParameters.FlagKey, false);
-            SetMessage(string.Format(ExampleMessages.FlagValueIs, flagValue));
+            var flagValue = client.BoolVariation(DemoParameters.FeatureFlagKey, false);
+            SetMessage(string.Format(DemoMessages.FlagValueIs, DemoParameters.FeatureFlagKey, flagValue));
         }
 
         void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
         {
-            if (args.Key == LaunchDarklyParameters.FlagKey)
+            if (args.Key == DemoParameters.FeatureFlagKey)
             {
                 UpdateFlagValue();
             }

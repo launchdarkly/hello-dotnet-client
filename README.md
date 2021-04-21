@@ -1,12 +1,45 @@
-## LaunchDarkly Sample Xamarin Applications
+# LaunchDarkly Sample Xamarin Application s
 
-To demonstrate basic usage of the LaunchDarkly Xamarin SDK, we've built two applications that both do the same thing: one for Android and one for iOS. The only differences between them are in the platform-specific application startup code and the user interface components. The user interface could be generalized between them using Xamarin Forms, but in this case the UI is so simple (just a single text field) that it has little effect on the demo code.
+We've built a simple demo that demonstrates how LaunchDarkly's SDK works. Since the Xamarin SDK can be used either on Xamarin-compatible mobile devices or in portable .NET code, there are three versions of the demo: an Android app, an iOS app, and a .NET Core console app.
 
-In both applications, there is a single boolean feature flag whose on or off state appears on the screen. The application listens for `FeatureFlagChanged` events from the SDK, so that if the flag is changed on your LaunchDarkly dashboard, it will be updated promptly on the screen.
+Below, you'll find the basic build procedures, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [Xamarin SDK reference guide](https://docs.launchdarkly.com/sdk/client-side/xamarin).
 
-### Build instructions
+## Instructions for Android and iOS
 
-1. Make sure you have [Visual Studio](https://visualstudio.microsoft.com/downloads/) installed; the Android app can be run from either Windows or Mac, but the iOS app requires Mac. For Windows, you must use Visual Studio 2017 or later. For Mac, besides Visual Studio you must also have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
-2. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio.
-3. Open `LaunchDarklyParameters.cs` in the `Shared` project. Set `MobileKey` and `FlagKey` to the mobile key for your LaunchDarkly environment and the key of a boolean feature flag in your environment. If you want to test feature flag targeting for different users, you can also change `UserKey` or add more properties in `DefaultUser`.
-4. Run the `XamarinAndroidApp` or `XamarinIOSApp` project in Visual Studio for Mac.
+The Android and iOS demos require Visual Studio to build and run. For iOS, besides Visual Studio you must also have [Xcode](https://developer.apple.com/xcode/). You can run either on a real device or a simulator.
+
+These demo apps use Android- and iOS-specific user interface components, rather than Xamarin Forms. The LaunchDarkly Xamarin SDK in itself has no UI functionality, so in a Xamarin Forms app there would be no difference in how you would use the SDK.
+
+1. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio.
+
+2. To ensure that you are using the latest version of the SDK, use "Manage NuGet Packages" in Visual Studio to update the `LaunchDarkly.ServerSdk` package for whichever project you are running (`XamarinAndroidApp` or `XamarinIOsApp`).
+
+3. Edit `Shared/DemoParameters.cs` and set the value of `MobileKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `FeatureFlagKey` to the flag key.
+
+```csharp
+    public const string MobileKey = "1234567890abcdef";
+
+    public const string FeatureFlagKey = "my-flag";
+```
+
+4. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
+
+You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
+
+If you leave the app running and use your LaunchDarkly dashboard to turn the flag off or on, you should see the message change to show the new value, showing how an app can receive live updates.
+
+## Instructions for .NET Core (console)
+
+1. To ensure that you are using the latest version of the SDK, run `dotnet add XamarinConsoleApp package LaunchDarkly.XamarinSdk` (or, use "Manage NuGet Packages" in Visual Studio to update the `LaunchDarkly.XamarinSdk` package in the `XamarinConsoleApp` project).
+
+2. Edit `Shared/DemoParameters` as described above.
+
+3. If you are using Visual Studio, open `LaunchDarkly.HelloXamarin.sln` and run the `XamarinConsoleApp` project. Or, to run from the command line, type the following command:
+
+```
+    dotnet run --project XamarinConsoleApp
+```
+
+You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
+
+Unlike the Android and iOS demos, the console demo exits immediately, so it does not demonstrate receiving live updates of flags. However, the same streaming update functionality can be used in a long-running .NET Core application just as it would in a mobile app.

@@ -6,7 +6,7 @@
     <ProjectGuid>{39260D8C-61CB-47CA-AA61-BF3C83A54EEC}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>LaunchDarkly.Xamarin.Example</RootNamespace>
+    <RootNamespace>LaunchDarkly.Hello</RootNamespace>
     <AssemblyName>LaunchDarkly.Xamarin.AndroidApp</AssemblyName>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
