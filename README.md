@@ -10,7 +10,11 @@ The Android and iOS demos require Visual Studio to build and run. For iOS, besid
 
 These demo apps use Android- and iOS-specific user interface components, rather than Xamarin Forms. The LaunchDarkly Xamarin SDK in itself has no UI functionality, so in a Xamarin Forms app there would be no difference in how you would use the SDK.
 
-1. Edit `Shared/DemoParameters.cs` and set the value of `MobileKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `FeatureFlagKey` to the flag key.
+1. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio.
+
+2. To ensure that you are using the latest version of the SDK, use "Manage NuGet Packages" in Visual Studio to update the `LaunchDarkly.ServerSdk` package for whichever project you are running (`XamarinAndroidApp` or `XamarinIOsApp`).
+
+3. Edit `Shared/DemoParameters.cs` and set the value of `MobileKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `FeatureFlagKey` to the flag key.
 
 ```csharp
     public const string MobileKey = "1234567890abcdef";
@@ -18,7 +22,7 @@ These demo apps use Android- and iOS-specific user interface components, rather 
     public const string FeatureFlagKey = "my-flag";
 ```
 
-2. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
+4. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
 
 You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
 
@@ -26,9 +30,11 @@ If you leave the app running and use your LaunchDarkly dashboard to turn the fla
 
 ## Instructions for .NET Core (console)
 
-1. Edit `Shared/DemoParameters` as described above.
+1. To ensure that you are using the latest version of the SDK, run `dotnet add XamarinConsoleApp package LaunchDarkly.XamarinSdk` (or, use "Manage NuGet Packages" in Visual Studio to update the `LaunchDarkly.XamarinSdk` package in the `XamarinConsoleApp` project).
 
-2. If you are using Visual Studio, open `LaunchDarkly.HelloXamarin.sln` and run the `XamarinConsoleApp` project. Or, to run from the command line, type the following command:
+2. Edit `Shared/DemoParameters` as described above.
+
+3. If you are using Visual Studio, open `LaunchDarkly.HelloXamarin.sln` and run the `XamarinConsoleApp` project. Or, to run from the command line, type the following command:
 
 ```
     dotnet run --project XamarinConsoleApp
