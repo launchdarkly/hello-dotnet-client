@@ -5,6 +5,7 @@ workflows:
     jobs:
     - build-run-linux:
         context: hello-world-demos
+    - build-macos
 
   test-daily:
     triggers:
@@ -16,10 +17,15 @@ workflows:
     jobs:
     - build-run-linux:
         context: hello-world-demos
+    - build-macos
 
 # This CI build ensures that the demo both compiles and works correctly. For the runtime test,
 # we use a mobile key and flag key that are passed in via the CircleCI project configuration;
 # the flag is configured to return a true value.
+#
+# XamarinConsoleApp is the only version of the demo that we are both building and running in
+# CI. XamarinAndroidApp and XamarinIOsApp are built (to ensure that we haven't completely
+# broken the demo code), but are not run.
 
 jobs:
   build-run-linux:
@@ -43,3 +49,23 @@ jobs:
           command: |
             dotnet run --project XamarinConsoleApp | tee output.txt
             grep "is True for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
+
+  build-macos:
+    macos: # We're using a Mac host because that's the only way to build for Xamarin iOS
+      xcode: "12.4.0"
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install .NET/Xamarin build tools
+          command: ./.circleci/macos-install-xamarin.sh android ios
+
+      # Note that the dotnet CLI command can't be used with Xamarin projects; we must use msbuild
+      - run:
+          name: Build XamarinAndroidApp
+          command: msbuild /restore /p:Configuration=Debug XamarinAndroidApp/XamarinAndroidApp.csproj
+
+      - run:
+          name: Build XamarinIOsApp
+          command: msbuild /restore /p:Configuration=Debug XamarinIOsApp/XamarinIOsApp.csproj
