@@ -12,9 +12,7 @@ These demo apps use Android- and iOS-specific user interface components, rather 
 
 1. Open `LaunchDarkly.HelloXamarin.sln` in Visual Studio.
 
-2. To ensure that you are using the latest version of the SDK, use "Manage NuGet Packages" in Visual Studio to update the `LaunchDarkly.ServerSdk` package for whichever project you are running (`XamarinAndroidApp` or `XamarinIOsApp`).
-
-3. Edit `Shared/DemoParameters.cs` and set the value of `MobileKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `FeatureFlagKey` to the flag key.
+2. Edit `Shared/DemoParameters.cs` and set the value of `MobileKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `FeatureFlagKey` to the flag key.
 
 ```csharp
     public const string MobileKey = "1234567890abcdef";
@@ -22,7 +20,7 @@ These demo apps use Android- and iOS-specific user interface components, rather 
     public const string FeatureFlagKey = "my-flag";
 ```
 
-4. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
+3. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
 
 You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
 
