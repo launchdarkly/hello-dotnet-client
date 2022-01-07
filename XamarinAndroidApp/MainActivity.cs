@@ -1,16 +1,17 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using LaunchDarkly.Xamarin;
+using LaunchDarkly.Sdk.Client;
+using LaunchDarkly.Sdk.Client.Interfaces;
 
 namespace LaunchDarkly.Hello
 {
-    // This is the Android version of the LaunchDarkly Xamarin SDK demo. The non-platform-specific
-    // classes DemoMessages and DemoParameters are defined in ../Shared.
+    // This is the Android version of the LaunchDarkly client-side .NET SDK demo. The
+    // non-platform-specific classes DemoMessages and DemoParameters are defined in ../Shared.
 
     // This file implements the application UI and demonstrates usage of the LaunchDarkly SDK.
 
-    [Activity(Label = "LaunchDarkly.Xamarin", MainLauncher = true, Icon = "@mipmap/icon")]
+    [Activity(Label = "LaunchDarkly.Hello", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
         private ILdClient client;
@@ -38,7 +39,7 @@ namespace LaunchDarkly.Hello
                 if (client.Initialized)
                 {
                     UpdateFlagValue();
-                    client.FlagChanged += FeatureFlagChanged;
+                    client.FlagTracker.FlagValueChanged += FeatureFlagChanged;
                 }
                 else
                 {
@@ -58,7 +59,7 @@ namespace LaunchDarkly.Hello
             SetMessage(string.Format(DemoMessages.FlagValueIs, DemoParameters.FeatureFlagKey, flagValue));
         }
 
-        void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
+        void FeatureFlagChanged(object sender, FlagValueChangeEvent args)
         {
             if (args.Key == DemoParameters.FeatureFlagKey)
             {

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>LaunchDarkly.Xamarin.iOSApp</string>
+	<string>LaunchDarkly.Hello.iOSApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.launchdarkly.xamarin.iosapp</string>
+	<string>com.launchdarkly.hello.iosapp</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

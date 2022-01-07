@@ -1,5 +1,4 @@
-﻿using Common.Logging;
-using UIKit;
+﻿using UIKit;
 
 namespace LaunchDarkly.Hello
 {
@@ -13,15 +12,7 @@ namespace LaunchDarkly.Hello
     {
         static void Main(string[] args)
         {
-            // Set up logging to log SDK messages to the console (console output can be viewed in
-            // Visual Studio).
-            var props = new global::Common.Logging.Configuration.NameValueCollection
-            {
-                { "level", "Debug" }
-            };
-            LogManager.Adapter = new global::Common.Logging.Simple.DebugLoggerFactoryAdapter(props);
-
-            UIApplication.Main(args, null, "AppDelegate");
+            UIApplication.Main(args, null, typeof(AppDelegate));
         }
     }
 }
