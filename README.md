@@ -2,6 +2,8 @@
 
 We've built a simple demo that demonstrates how LaunchDarkly's SDK works. Since the client-side .NET SDK can be used either on Xamarin-compatible mobile devices or in portable .NET code, there are three versions of the demo: a Xamarin Android app, a Xamarin iOS app, and a .NET Core console app.
 
+Important: these demos are for the _client-side_ .NET SDK, which is suitable for mobile or desktop applications. For server-side use, see https://github.com/launchdarkly/hello-dotnet-server.
+
 Below, you'll find the basic build procedures, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [client-side .NET SDK reference guide](https://docs.launchdarkly.com/sdk/client-side/dotnet).
 
 ## Instructions for Android and iOS
