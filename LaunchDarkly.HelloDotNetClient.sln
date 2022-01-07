@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinIOSApp", "XamarinIOS
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{94F3C23C-0731-4A72-AB69-4FBB3D838B0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinConsoleApp", "XamarinConsoleApp\XamarinConsoleApp.csproj", "{41F376E1-FD4F-4BD2-9C09-57F62A679A0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetConsoleApp", "DotNetConsoleApp\DotNetConsoleApp.csproj", "{41F376E1-FD4F-4BD2-9C09-57F62A679A0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

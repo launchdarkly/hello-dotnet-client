@@ -2,7 +2,7 @@
 namespace LaunchDarkly.Hello
 {
     // These strings are used by all three versions of the demo: XamarinAndroidApp,
-    // XamarinIOsApp, and XamarinConsoleApp.
+    // XamarinIOsApp, and DotNetConsoleApp.
 
     public static class DemoMessages
     {

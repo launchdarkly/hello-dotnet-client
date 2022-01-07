@@ -1,11 +1,10 @@
 ﻿using System;
-using Common.Logging;
 using LaunchDarkly.Logging;
-using LaunchDarkly.Xamarin;
+using LaunchDarkly.Sdk.Client;
 
 namespace LaunchDarkly.Hello
 {
-    // This is the .NET Core console version of the LaunchDarkly Xamarin SDK demo. The
+    // This is the .NET Core console version of the LaunchDarkly client-side .NET SDK demo. The
     // non-platform-specific classes DemoMessages and DemoParameters are defined in ../Shared.
 
     public class Program
@@ -17,12 +16,6 @@ namespace LaunchDarkly.Hello
                 ShowMessage(DemoMessages.MobileKeyNotSet);
                 Environment.Exit(1);
             }
-
-            // Set up logging to log SDK messages to the console. ConsoleAdapter is a simple
-            // Common.Logging implementation that's provided by LaunchDarkly; Common.Logging has
-            // an equivalent class, but not on every platform.
-            LogManager.Adapter = new ConsoleAdapter(LogLevel.Info);
-            // 
 
             LdClient client = LdClient.Init(
                 DemoParameters.MobileKey,

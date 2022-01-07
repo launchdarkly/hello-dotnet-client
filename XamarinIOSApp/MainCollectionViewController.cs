@@ -1,6 +1,7 @@
 using System;
 using UIKit;
-using LaunchDarkly.Xamarin;
+using LaunchDarkly.Sdk.Client;
+using LaunchDarkly.Sdk.Client.Interfaces;
 
 namespace LaunchDarkly.Hello
 {
@@ -34,7 +35,7 @@ namespace LaunchDarkly.Hello
                 if (client.Initialized)
                 {
                     UpdateFlagValue();
-                    client.FlagChanged += FeatureFlagChanged;
+                    client.FlagTracker.FlagValueChanged += FeatureFlagChanged;
                 }
                 else
                 {
@@ -59,7 +60,7 @@ namespace LaunchDarkly.Hello
             SetMessage(string.Format(DemoMessages.FlagValueIs, DemoParameters.FeatureFlagKey, flagValue));
         }
 
-        void FeatureFlagChanged(object sender, FlagChangedEventArgs args)
+        void FeatureFlagChanged(object sender, FlagValueChangeEvent args)
         {
             if (args.Key == DemoParameters.FeatureFlagKey)
             {

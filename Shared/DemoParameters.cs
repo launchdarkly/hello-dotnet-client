@@ -1,5 +1,5 @@
 ﻿using System;
-using LaunchDarkly.Client;
+using LaunchDarkly.Sdk;
 
 namespace LaunchDarkly.Hello
 {

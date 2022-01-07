@@ -41,12 +41,12 @@ jobs:
       
       - run:
           name: build demo
-          command: dotnet build XamarinConsoleApp
+          command: dotnet build DotNetConsoleApp
       
       - run:
           name: run demo
           command: |
-            dotnet run --project XamarinConsoleApp | tee output.txt
+            dotnet run --project DotNetConsoleApp | tee output.txt
             grep "is True for this user" output.txt || (echo "Flag did not evaluate to expected true value" && exit 1)
 
   build-macos:
