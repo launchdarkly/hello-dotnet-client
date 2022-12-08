@@ -14,10 +14,10 @@ namespace LaunchDarkly.Hello
         // Set FeatureFlagKey to the feature flag key you want to evaluate.
         public const string FeatureFlagKey = "my-boolean-flag";
 
-        // Set up the user properties. This user should appear on your LaunchDarkly users dashboard
-        // soon after you run the demo.
-        public static User MakeDemoUser() =>
-            User.Builder("example-user-key")
+        // Set up the evaluation context. This context should appear on your LaunchDarkly
+        // contexts dashboard soon after you run the demo.
+        public static Context MakeDemoContext() =>
+            Context.Builder("example-user-key")
                 .Name("Sandy")
                 .Build();
 

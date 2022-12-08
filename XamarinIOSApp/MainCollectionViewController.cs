@@ -29,7 +29,7 @@ namespace LaunchDarkly.Hello
             {
                 client = LdClient.Init(
                     DemoParameters.MobileKey,
-                    DemoParameters.MakeDemoUser(),
+                    DemoParameters.MakeDemoContext(),
                     DemoParameters.SDKTimeout
                 );
                 if (client.Initialized)

@@ -6,7 +6,7 @@ namespace LaunchDarkly.Hello
 
     public static class DemoMessages
     {
-        public const string FlagValueIs = "Feature flag '{0}' is {1} for this user";
+        public const string FlagValueIs = "Feature flag '{0}' is {1} for this context";
 
         public const string MobileKeyNotSet =
             "Please edit Shared/DemoParameters.cs to set Mobile to your LaunchDarkly mobile key first";
