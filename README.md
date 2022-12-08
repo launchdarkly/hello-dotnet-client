@@ -24,7 +24,7 @@ These demo apps use Android- and iOS-specific user interface components, rather 
 
 3. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
 
-You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
+You should see the message `"Feature flag '<flag key>' is <true/false> for this context"`.
 
 If you leave the app running and use your LaunchDarkly dashboard to turn the flag off or on, you should see the message change to show the new value, showing how an app can receive live updates.
 
@@ -38,6 +38,6 @@ If you leave the app running and use your LaunchDarkly dashboard to turn the fla
     dotnet run --project DotNetConsoleApp
 ```
 
-You should see the message `"Feature flag '<flag key>' is <true/false> for this user"`.
+You should see the message `"Feature flag '<flag key>' is <true/false> for this context"`.
 
 Unlike the Android and iOS demos, the console demo exits immediately, so it does not demonstrate receiving live updates of flags. However, the same streaming update functionality can be used in a long-running .NET Core application just as it would in a mobile app.

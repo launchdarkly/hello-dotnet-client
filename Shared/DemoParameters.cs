@@ -17,7 +17,7 @@ namespace LaunchDarkly.Hello
         // Set up the evaluation context. This context should appear on your LaunchDarkly
         // contexts dashboard soon after you run the demo.
         public static Context MakeDemoContext() =>
-            User.Builder("example-user-key")
+            Context.Builder("example-user-key")
                 .Name("Sandy")
                 .Build();
 
