@@ -33,7 +33,7 @@ namespace LaunchDarkly.Hello
                 client = LdClient.Init(
                     // These values are set in the Shared project
                     DemoParameters.MobileKey,
-                    DemoParameters.MakeDemoUser(),
+                    DemoParameters.MakeDemoContext(),
                     DemoParameters.SDKTimeout
                 );
                 if (client.Initialized)
