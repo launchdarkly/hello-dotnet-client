@@ -1,6 +1,7 @@
 ﻿using System;
 using LaunchDarkly.Logging;
 using LaunchDarkly.Sdk.Client;
+using ConfigurationBuilder = LaunchDarkly.EventSource.ConfigurationBuilder;
 
 namespace LaunchDarkly.Hello
 {
@@ -18,7 +19,7 @@ namespace LaunchDarkly.Hello
             }
 
             LdClient client = LdClient.Init(
-                DemoParameters.MobileKey,
+                Configuration.Default(DemoParameters.MobileKey, Sdk.Client.ConfigurationBuilder.AutoEnvAttributes.Enabled),
                 DemoParameters.MakeDemoContext(),
                 DemoParameters.SDKTimeout
             );
