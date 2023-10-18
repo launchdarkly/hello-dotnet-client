@@ -46,7 +46,7 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
     <Reference Include="System.Xml" />
-    <PackageReference Include="LaunchDarkly.ClientSdk" Version="3.*" />
+    <PackageReference Include="LaunchDarkly.ClientSdk" Version="4.*" />
     <PackageReference Include="Xamarin.Android.Arch.Core.Runtime" Version="1.1.1.1" />
     <PackageReference Include="Xamarin.Android.Arch.Lifecycle.LiveData" Version="1.1.1.1" />
     <PackageReference Include="Xamarin.Android.Arch.Lifecycle.ViewModel" Version="1.1.1.1" />

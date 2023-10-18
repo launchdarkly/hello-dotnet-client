@@ -2,6 +2,7 @@ using System;
 using UIKit;
 using LaunchDarkly.Sdk.Client;
 using LaunchDarkly.Sdk.Client.Interfaces;
+using ConfigurationBuilder = LaunchDarkly.Sdk.Client.ConfigurationBuilder;
 
 namespace LaunchDarkly.Hello
 {
@@ -28,9 +29,9 @@ namespace LaunchDarkly.Hello
             else
             {
                 client = LdClient.Init(
-                    DemoParameters.MobileKey,
+                    Configuration.Default(DemoParameters.MobileKey, ConfigurationBuilder.AutoEnvAttributes.Enabled),
                     DemoParameters.MakeDemoContext(),
-                    DemoParameters.SDKTimeout
+                    DemoParameters.SdkTimeout
                 );
                 if (client.Initialized)
                 {
