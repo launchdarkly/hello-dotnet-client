@@ -19,7 +19,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-ANDROID_SDK_CMDLINE_TOOLS_DOWNLOAD_URL=https://dl.google.com/android/repository/commandlinetools-mac-6858069_latest.zip
+ANDROID_SDK_CMDLINE_TOOLS_DOWNLOAD_URL=https://dl.google.com/android/repository/commandlinetools-mac-10406996_latest.zip
 ANDROID_BUILD_TOOLS_VERSION=26.0.2
 
 if [ -z "$ANDROID_HOME" ]; then

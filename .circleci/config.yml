@@ -51,7 +51,7 @@ jobs:
 
   build-macos:
     macos: # We're using a Mac host because that's the only way to build for Xamarin iOS
-      xcode: "12.5.1"
+      xcode: "15.0.0"
 
     steps:
       - checkout
