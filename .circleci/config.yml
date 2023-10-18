@@ -67,7 +67,7 @@ jobs:
       # Note that the dotnet CLI command can't be used with Xamarin projects; we must use msbuild
       - run:
           name: Build XamarinAndroidApp
-          command: msbuild /restore /p:Configuration=Debug /p:AndroidSdkDirectory=$ANDROID_SDK_ROOT XamarinAndroidApp/XamarinAndroidApp.csproj
+          command: msbuild /restore /p:Configuration=Debug /p:AndroidSdkDirectory=/usr/local/share/android-sdk XamarinAndroidApp/XamarinAndroidApp.csproj
 
       - run:
           name: Pre-build storyboard for iOS app
