@@ -51,7 +51,9 @@ jobs:
 
   build-macos:
     macos: # We're using a Mac host because that's the only way to build for Xamarin iOS
-      xcode: "12.5.1"
+      # If the xcode version (or possibly resource class) is updated, we'll need to install JDK 11 explicitly for use
+      # with Xamarin.
+      xcode: "13.4.1"
 
     steps:
       - checkout

@@ -1,8 +1,9 @@
 ﻿using System;
-using LaunchDarkly.Logging;
+using LaunchDarkly.Hello;
 using LaunchDarkly.Sdk.Client;
+using ConfigurationBuilder = LaunchDarkly.Sdk.Client.ConfigurationBuilder;
 
-namespace LaunchDarkly.Hello
+namespace DotNetConsoleApp
 {
     // This is the .NET Core console version of the LaunchDarkly client-side .NET SDK demo. The
     // non-platform-specific classes DemoMessages and DemoParameters are defined in ../Shared.
@@ -17,10 +18,10 @@ namespace LaunchDarkly.Hello
                 Environment.Exit(1);
             }
 
-            LdClient client = LdClient.Init(
-                DemoParameters.MobileKey,
+            var client = LdClient.Init(
+                Configuration.Default(DemoParameters.MobileKey, ConfigurationBuilder.AutoEnvAttributes.Enabled),
                 DemoParameters.MakeDemoContext(),
-                DemoParameters.SDKTimeout
+                DemoParameters.SdkTimeout
             );
 
             if (client.Initialized)

@@ -6,7 +6,7 @@ namespace LaunchDarkly.Hello
     // These values are used by all three versions of the demo: XamarinAndroidApp,
     // XamarinIOsApp, and XamarinConsoleApp.
 
-    public class DemoParameters
+    public static class DemoParameters
     {
         // Set MobileKey to your LaunchDarkly mobile key.
         public const string MobileKey = "";
@@ -22,6 +22,6 @@ namespace LaunchDarkly.Hello
                 .Build();
 
         // How long the application will wait for the SDK to connect to LaunchDarkly
-        public static TimeSpan SDKTimeout = TimeSpan.FromSeconds(10);
+        public static TimeSpan SdkTimeout = TimeSpan.FromSeconds(10);
     }
 }
