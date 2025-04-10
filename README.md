@@ -1,16 +1,14 @@
 # LaunchDarkly Sample Client-Side .NET Applications
 
-We've built a simple demo that demonstrates how LaunchDarkly's SDK works. Since the client-side .NET SDK can be used either on Xamarin-compatible mobile devices or in portable .NET code, there are three versions of the demo: a Xamarin Android app, a Xamarin iOS app, and a .NET Core console app.
+We've built a simple demo that demonstrates how LaunchDarkly's SDK works. Since the client-side .NET SDK can be used either on MAUI compatible devices or in portable .NET code, there are two versions of the demo: a MAUI app and a .NET Core console app.
 
 Important: these demos are for the _client-side_ .NET SDK, which is suitable for mobile or desktop applications. For server-side use, see https://github.com/launchdarkly/hello-dotnet-server.
 
 Below, you'll find the basic build procedures, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [client-side .NET SDK reference guide](https://docs.launchdarkly.com/sdk/client-side/dotnet).
 
-## Instructions for Android and iOS
+## Instructions for MAUI
 
-The Android and iOS demos require Visual Studio to build and run. For iOS, besides Visual Studio you must also have [Xcode](https://developer.apple.com/xcode/). You can run either on a real device or a simulator.
-
-These demo apps use Android- and iOS-specific user interface components, rather than Xamarin Forms. The LaunchDarkly SDK in itself has no UI functionality, so in a Xamarin Forms app there would be no difference in how you would use the SDK.
+The MAUI demo requires Visual Studio to build and run. For iOS, besides Visual Studio you must also have [Xcode](https://developer.apple.com/xcode/). You can run either on a real device or a simulator.
 
 1. Open `LaunchDarkly.HelloDotNetClient.sln` in Visual Studio.
 
@@ -22,7 +20,7 @@ These demo apps use Android- and iOS-specific user interface components, rather 
     public const string FeatureFlagKey = "my-flag";
 ```
 
-3. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
+3. Build and run the `HelloDotnetMaui` project.
 
 You should see the message `"Feature flag '<flag key>' is <true/false> for this context"`.
 

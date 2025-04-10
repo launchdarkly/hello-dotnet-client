@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAndroidApp", "Xamari
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinIOSApp", "XamarinIOSApp\XamarinIOSApp.csproj", "{282F0C33-35AA-4926-B097-DBD79B68B9AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloDotnetMaui", "HelloDotnetMaui\HelloDotnetMaui.csproj", "{E07676E4-992C-4EA7-A7BE-0F3CB507BF66}"
+EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{94F3C23C-0731-4A72-AB69-4FBB3D838B0F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetConsoleApp", "DotNetConsoleApp\DotNetConsoleApp.csproj", "{41F376E1-FD4F-4BD2-9C09-57F62A679A0C}"

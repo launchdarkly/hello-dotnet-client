@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloDotnetMaui.MainPage"
+             x:Name="MainPageLayout">
+
+    <Label
+                x:Name="MessageTxt"
+                Text="Your flag value will appear here."
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                VerticalOptions="Center"/>
+</ContentPage>

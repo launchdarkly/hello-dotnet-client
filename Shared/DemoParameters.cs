@@ -9,7 +9,7 @@ namespace LaunchDarkly.Hello
     public static class DemoParameters
     {
         // Set MobileKey to your LaunchDarkly mobile key.
-        public const string MobileKey = "";
+        public const string MobileKey = "mob-a9c9ebd5-5b37-4b95-a418-c5ee4cd89468";
 
         // Set FeatureFlagKey to the feature flag key you want to evaluate.
         public const string FeatureFlagKey = "my-boolean-flag";
