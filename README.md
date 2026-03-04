@@ -46,10 +46,18 @@ The MAUI app demonstrates LaunchDarkly in a mobile context using .NET MAUI, targ
     dotnet workload install maui
     ```
 
-2. Set the value of the `mobileKey` variable in `MauiApp/MainPage.xaml.cs` to your mobile key:
-    ```csharp
-    const string mobileKey = "my-mobile-key";
+2. Copy the example settings file and set your mobile key:
+    ```bash
+    cp MauiApp/Resources/Raw/appsettings.example.json MauiApp/Resources/Raw/appsettings.json
     ```
+    Then edit `MauiApp/Resources/Raw/appsettings.json` and set your mobile key:
+    ```json
+    {
+      "MobileKey": "my-mobile-key",
+      "FlagKey": "sample-feature"
+    }
+    ```
+    The `appsettings.json` file is gitignored to prevent committing your key.
 
 3. Build and run:
     - **Android** (deploy to a connected device or emulator):

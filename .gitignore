@@ -42,3 +42,6 @@ Thumbs.db
 
 # jetBrains
 .idea
+
+# MAUI appsettings (contains LaunchDarkly keys)
+MauiApp/Resources/Raw/appsettings.json

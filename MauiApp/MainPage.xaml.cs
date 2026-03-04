@@ -1,4 +1,5 @@
-﻿using LaunchDarkly.Sdk;
+﻿using System.Text.Json;
+using LaunchDarkly.Sdk;
 using LaunchDarkly.Sdk.Client;
 using LaunchDarkly.Sdk.Client.Interfaces;
 
@@ -6,9 +7,6 @@ namespace HelloDotNetClient;
 
 public partial class MainPage : ContentPage
 {
-    // Set mobileKey to your LaunchDarkly mobile key.
-    const string mobileKey = "";
-
     // Set flagKey to the feature flag key you want to evaluate.
     const string flagKey = "sample-feature";
 
@@ -22,8 +20,9 @@ public partial class MainPage : ContentPage
 
     private async void InitializeLaunchDarkly()
     {
-        var resolvedMobileKey = GetMobileKey();
-        var resolvedFlagKey = GetFlagKey();
+        var settings = await LoadAppSettings();
+        var resolvedMobileKey = GetMobileKey(settings);
+        var resolvedFlagKey = GetFlagKey(settings);
 
         if (resolvedMobileKey == null || resolvedFlagKey == null)
         {
@@ -79,32 +78,42 @@ public partial class MainPage : ContentPage
         Page.BackgroundColor = flagValue ? Color.FromArgb("#00844B") : Color.FromArgb("#373841");
     }
 
-    private string? GetMobileKey()
+    private async Task<Dictionary<string, string>> LoadAppSettings()
     {
-        if (!string.IsNullOrEmpty(mobileKey))
+        try
         {
-            return mobileKey;
+            using var stream = await FileSystem.OpenAppPackageFileAsync("appsettings.json");
+            using var reader = new StreamReader(stream);
+            var json = await reader.ReadToEndAsync();
+            return JsonSerializer.Deserialize<Dictionary<string, string>>(json)
+                   ?? new Dictionary<string, string>();
         }
-
-        var envKey = Environment.GetEnvironmentVariable("LAUNCHDARKLY_MOBILE_KEY");
-        if (!string.IsNullOrEmpty(envKey))
+        catch
         {
-            return envKey;
+            return new Dictionary<string, string>();
+        }
+    }
+
+    private string? GetMobileKey(Dictionary<string, string> settings)
+    {
+        if (settings.TryGetValue("MobileKey", out var settingsKey) && !string.IsNullOrEmpty(settingsKey)
+            && settingsKey != "my-mobile-key")
+        {
+            return settingsKey;
         }
 
         MainThread.BeginInvokeOnMainThread(() =>
         {
-            FlagLabel.Text = "LaunchDarkly mobile key is required: set the mobileKey variable in MainPage.xaml.cs, or the LAUNCHDARKLY_MOBILE_KEY environment variable and try again.";
+            FlagLabel.Text = "LaunchDarkly mobile key is required.\n\nCopy appsettings.example.json to appsettings.json in Resources/Raw/ and set your mobile key. See the README for details.";
         });
         return null;
     }
 
-    private string? GetFlagKey()
+    private string? GetFlagKey(Dictionary<string, string> settings)
     {
-        var envKey = Environment.GetEnvironmentVariable("LAUNCHDARKLY_FLAG_KEY");
-        if (!string.IsNullOrEmpty(envKey))
+        if (settings.TryGetValue("FlagKey", out var settingsKey) && !string.IsNullOrEmpty(settingsKey))
         {
-            return envKey;
+            return settingsKey;
         }
 
         if (!string.IsNullOrEmpty(flagKey))
@@ -114,7 +123,7 @@ public partial class MainPage : ContentPage
 
         MainThread.BeginInvokeOnMainThread(() =>
         {
-            FlagLabel.Text = "LaunchDarkly flag key is required: set the flagKey variable in MainPage.xaml.cs, or the LAUNCHDARKLY_FLAG_KEY environment variable and try again.";
+            FlagLabel.Text = "LaunchDarkly flag key is required.\n\nSet the FlagKey in appsettings.json. See the README for details.";
         });
         return null;
     }
