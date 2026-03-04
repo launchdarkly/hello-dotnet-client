@@ -37,7 +37,7 @@ namespace DotNetConsoleApp
             }
 
             var flagValue = client.BoolVariation(resolvedFlagKey, false);
-            ShowMessage(string.Format("The {0} feature flag evaluates to {1}.", resolvedFlagKey, flagValue));
+            ShowMessage(string.Format("The {0} feature flag evaluates to {1}.", resolvedFlagKey, flagValue.ToString().ToLowerInvariant()));
 
             if (flagValue)
             {
@@ -51,7 +51,7 @@ namespace DotNetConsoleApp
                     if (eventArgs.Key == resolvedFlagKey)
                     {
                         flagValue = client.BoolVariation(resolvedFlagKey, false);
-                        ShowMessage(string.Format("The {0} feature flag evaluates to {1}.", resolvedFlagKey, flagValue));
+                        ShowMessage(string.Format("The {0} feature flag evaluates to {1}.", resolvedFlagKey, flagValue.ToString().ToLowerInvariant()));
 
                         if (flagValue)
                         {
@@ -122,15 +122,15 @@ namespace DotNetConsoleApp
 
         static void ShowAsciiArt()
         {
-            Console.WriteLine("        ##       ");
-            Console.WriteLine("          ##     ");
-            Console.WriteLine("      ########   ");
-            Console.WriteLine("         ####### ");
-            Console.WriteLine("## LAUNCHDARKLY #");
-            Console.WriteLine("         ####### ");
-            Console.WriteLine("      ########   ");
-            Console.WriteLine("          ##     ");
-            Console.WriteLine("        ##       ");
+            Console.WriteLine("        \u2588\u2588       ");
+            Console.WriteLine("          \u2588\u2588     ");
+            Console.WriteLine("      \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588   ");
+            Console.WriteLine("         \u2588\u2588\u2588\u2588\u2588\u2588\u2588 ");
+            Console.WriteLine("\u2588\u2588 LAUNCHDARKLY \u2588");
+            Console.WriteLine("         \u2588\u2588\u2588\u2588\u2588\u2588\u2588 ");
+            Console.WriteLine("      \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588   ");
+            Console.WriteLine("          \u2588\u2588     ");
+            Console.WriteLine("        \u2588\u2588       ");
             Console.WriteLine();
         }
     }
