@@ -19,10 +19,10 @@ jobs:
       id-token: write # Needed if using OIDC to get release secrets.
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
           dotnet-version: 8.0.x
 
@@ -35,7 +35,7 @@ jobs:
       - name: Build MAUI app (Android)
         run: dotnet build MauiApp/MauiApp.csproj -f net8.0-android -p:TargetFrameworks=net8.0-android
 
-      - uses: launchdarkly/gh-actions/actions/verify-hello-app@verify-hello-app-v2.0.1
+      - uses: launchdarkly/gh-actions/actions/verify-hello-app@485c862dcc1d6a1357892727d47994962b205e22 # verify-hello-app-v2.0.1
         with:
           use_mobile_key: true
           role_arn: ${{ vars.AWS_ROLE_ARN }}
@@ -45,10 +45,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
           dotnet-version: 8.0.x
 
