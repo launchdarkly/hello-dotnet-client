@@ -1,13 +1,16 @@
 # LaunchDarkly sample .NET client-side application
 
-We've built a simple console application that demonstrates how the LaunchDarkly client-side .NET SDK works.
+We've built simple demo applications that demonstrate how the LaunchDarkly client-side .NET SDK works. There are two demos:
 
-Below, you'll find the build procedure. For more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or
+- **Console app** (`DotNetConsoleApp`): A .NET console application.
+- **MAUI app** (`MauiApp`): A .NET MAUI application targeting Android and iOS.
+
+Below, you'll find the build procedures. For more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or
 the [client-side .NET SDK reference guide](https://docs.launchdarkly.com/sdk/client-side/dotnet).
 
-This demo requires .NET 8.0 or higher.
+These demos require .NET 8.0 or higher.
 
-## Build instructions
+## Console app
 
 1. Set the value of the `mobileKey` variable in `DotNetConsoleApp/Program.cs` to your mobile key:
     ```csharp
@@ -33,3 +36,29 @@ This demo requires .NET 8.0 or higher.
     > "The sample-feature feature flag evaluates to false."
 
 The application will run continuously and react to the flag changes in LaunchDarkly.
+
+## MAUI app (Android & iOS)
+
+The MAUI app demonstrates LaunchDarkly in a mobile context using .NET MAUI, targeting both Android and iOS from a single project.
+
+1. Install the MAUI workload if you haven't already:
+    ```bash
+    dotnet workload install maui
+    ```
+
+2. Set the value of the `mobileKey` variable in `MauiApp/MainPage.xaml.cs` to your mobile key:
+    ```csharp
+    const string mobileKey = "my-mobile-key";
+    ```
+
+3. Build and run:
+    - **Android**:
+      ```bash
+      dotnet build MauiApp -f net8.0-android
+      ```
+    - **iOS** (requires macOS with Xcode):
+      ```bash
+      dotnet build MauiApp -f net8.0-ios
+      ```
+
+The app displays the current value of the feature flag. The background color changes from dark (#373841) to green (#00844B) when the flag evaluates to true. The app reacts to flag changes in real time.

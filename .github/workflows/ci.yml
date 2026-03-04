@@ -26,11 +26,34 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Build
+      - name: Install MAUI workload
+        run: dotnet workload install maui-android
+
+      - name: Build console app
         run: dotnet build DotNetConsoleApp
+
+      - name: Build MAUI app (Android)
+        run: dotnet build MauiApp -f net8.0-android
 
       - uses: launchdarkly/gh-actions/actions/verify-hello-app@verify-hello-app-v2.0.1
         with:
           use_mobile_key: true
           role_arn: ${{ vars.AWS_ROLE_ARN }}
           command: dotnet run --project DotNetConsoleApp
+
+  build-maui-ios:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui-ios
+
+      - name: Build MAUI app (iOS)
+        run: dotnet build MauiApp -f net8.0-ios
