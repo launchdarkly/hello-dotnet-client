@@ -52,13 +52,13 @@ The MAUI app demonstrates LaunchDarkly in a mobile context using .NET MAUI, targ
     ```
 
 3. Build and run:
-    - **Android**:
+    - **Android** (deploy to a connected device or emulator):
       ```bash
-      dotnet build MauiApp -f net8.0-android
+      dotnet build MauiApp -f net8.0-android -t:Run
       ```
-    - **iOS** (requires macOS with Xcode):
+    - **iOS** (requires macOS with Xcode; deploy to a simulator):
       ```bash
-      dotnet build MauiApp -f net8.0-ios
+      dotnet build MauiApp -f net8.0-ios -t:Run
       ```
 
 The app displays the current value of the feature flag. The background color changes from dark (#373841) to green (#00844B) when the flag evaluates to true. The app reacts to flag changes in real time.
