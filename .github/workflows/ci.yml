@@ -1,0 +1,36 @@
+name: Build and run
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  push:
+    branches: [ main, 'feat/**' ]
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches: [ main, 'feat/**' ]
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Needed if using OIDC to get release secrets.
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build
+        run: dotnet build DotNetConsoleApp
+
+      - uses: launchdarkly/gh-actions/actions/verify-hello-app@verify-hello-app-v2.0.1
+        with:
+          use_mobile_key: true
+          role_arn: ${{ vars.AWS_ROLE_ARN }}
+          command: dotnet run --project DotNetConsoleApp
