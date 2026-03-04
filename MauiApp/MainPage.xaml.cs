@@ -49,7 +49,10 @@ public partial class MainPage : ContentPage
         if (_client.Initialized)
         {
             var flagValue = _client.BoolVariation(resolvedFlagKey, false);
-            UpdateUI(resolvedFlagKey, flagValue);
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                UpdateUI(resolvedFlagKey, flagValue);
+            });
 
             _client.FlagTracker.FlagValueChanged += (sender, eventArgs) =>
             {
