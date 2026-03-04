@@ -46,7 +46,7 @@ jobs:
         run: dotnet workload install maui-android
 
       - name: Build MAUI app (Android)
-        run: dotnet build MauiApp
+        run: dotnet build MauiApp -p:EmbedAssembliesIntoApk=true
 
       - name: Enable KVM group perms (for performance)
         run: |
@@ -59,6 +59,7 @@ jobs:
         uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
         with:
           android: false
+          dotnet: false
           large-packages: false
 
       # https://github.com/reactivecircus/android-emulator-runner/releases/tag/v2.34.0
