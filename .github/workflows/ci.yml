@@ -70,8 +70,18 @@ jobs:
           script: |
             adb install MauiApp/bin/Debug/net8.0-android/com.launchdarkly.hello-Signed.apk
             adb shell monkey -p com.launchdarkly.hello -c android.intent.category.LAUNCHER 1
-            sleep 15
-            adb exec-out uiautomator dump /dev/tty | grep -o 'feature flag evaluates to true'
+            for i in 1 2 3 4; do
+              sleep 15
+              adb exec-out uiautomator dump /dev/tty > /tmp/uidump.xml 2>&1 || true
+              cat /tmp/uidump.xml
+              if grep -q 'feature flag evaluates to true' /tmp/uidump.xml; then
+                echo "SUCCESS: Flag evaluation verified"
+                exit 0
+              fi
+              echo "Attempt $i: text not found yet, retrying..."
+            done
+            echo "FAILURE: Could not verify flag evaluation after 4 attempts"
+            exit 1
 
       - uses: launchdarkly/gh-actions/actions/verify-hello-app@485c862dcc1d6a1357892727d47994962b205e22 # verify-hello-app-v2.0.1
         with:
