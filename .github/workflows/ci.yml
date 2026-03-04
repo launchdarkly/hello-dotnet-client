@@ -26,14 +26,14 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Install MAUI workload
-        run: dotnet workload install maui-android
-
       - name: Build console app
         run: dotnet build DotNetConsoleApp
 
+      - name: Install MAUI workload
+        run: dotnet workload install maui-android
+
       - name: Build MAUI app (Android)
-        run: dotnet build MauiApp -f net8.0-android
+        run: dotnet build MauiApp/MauiApp.csproj -f net8.0-android -p:TargetFrameworks=net8.0-android
 
       - uses: launchdarkly/gh-actions/actions/verify-hello-app@verify-hello-app-v2.0.1
         with:
@@ -56,4 +56,4 @@ jobs:
         run: dotnet workload install maui-ios
 
       - name: Build MAUI app (iOS)
-        run: dotnet build MauiApp -f net8.0-ios
+        run: dotnet build MauiApp/MauiApp.csproj -f net8.0-ios -p:TargetFrameworks=net8.0-ios
