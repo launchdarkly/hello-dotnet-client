@@ -1,0 +1,97 @@
+name: Build and run
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  push:
+    branches: [ main, 'feat/**' ]
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches: [ main, 'feat/**' ]
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Needed if using OIDC to get release secrets.
+      contents: read
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build console app
+        run: dotnet build DotNetConsoleApp
+
+      # https://github.com/launchdarkly/gh-actions/releases/tag/release-secrets-v1.2.0
+      - uses: launchdarkly/gh-actions/actions/release-secrets@bbbbbda684f500766264e7fe327668094ba83d1c # release-secrets-v1.2.0
+        name: 'Get mobile key and flag key'
+        with:
+          aws_assume_role: ${{ vars.AWS_ROLE_ARN }}
+          ssm_parameter_pairs: '/sdk/common/hello-apps/mobile-key = LAUNCHDARKLY_MOBILE_KEY,
+            /sdk/common/hello-apps/boolean-flag-key = LAUNCHDARKLY_FLAG_KEY'
+
+      - name: Configure MAUI appsettings
+        run: |
+          echo "{\"MobileKey\": \"$LAUNCHDARKLY_MOBILE_KEY\", \"FlagKey\": \"$LAUNCHDARKLY_FLAG_KEY\"}" > MauiApp/Resources/Raw/appsettings.json
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui-android
+
+      - name: Build MAUI app (Android)
+        run: dotnet build MauiApp -p:EmbedAssembliesIntoApk=true
+
+      - name: Enable KVM group perms (for performance)
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      # https://github.com/jlumbroso/free-disk-space/releases/tag/v1.3.1
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+        with:
+          android: false
+          dotnet: false
+          large-packages: false
+
+      # https://github.com/reactivecircus/android-emulator-runner/releases/tag/v2.34.0
+      - name: Run MAUI app on emulator
+        uses: reactivecircus/android-emulator-runner@324029e2f414c084d8b15ba075288885e74aef9c # v2.34.0
+        with:
+          api-level: 29
+          arch: x86_64
+          script: bash .github/scripts/verify-maui-android.sh
+
+      - uses: launchdarkly/gh-actions/actions/verify-hello-app@485c862dcc1d6a1357892727d47994962b205e22 # verify-hello-app-v2.0.1
+        with:
+          use_mobile_key: true
+          role_arn: ${{ vars.AWS_ROLE_ARN }}
+          command: dotnet run --project DotNetConsoleApp
+
+  build-maui:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install MAUI workloads
+        run: dotnet workload install maui
+
+      - name: Build MAUI app (Android)
+        run: dotnet build MauiApp -f net8.0-android
+
+      - name: Build MAUI app (iOS)
+        run: dotnet build MauiApp -f net8.0-ios

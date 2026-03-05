@@ -1,43 +1,72 @@
-# LaunchDarkly Sample Client-Side .NET Applications
+# LaunchDarkly sample .NET client-side application
 
-We've built a simple demo that demonstrates how LaunchDarkly's SDK works. Since the client-side .NET SDK can be used either on Xamarin-compatible mobile devices or in portable .NET code, there are three versions of the demo: a Xamarin Android app, a Xamarin iOS app, and a .NET Core console app.
+We've built simple demo applications that demonstrate how the LaunchDarkly client-side .NET SDK works. There are two demos:
 
-Important: these demos are for the _client-side_ .NET SDK, which is suitable for mobile or desktop applications. For server-side use, see https://github.com/launchdarkly/hello-dotnet-server.
+- **Console app** (`DotNetConsoleApp`): A .NET console application.
+- **MAUI app** (`MauiApp`): A .NET MAUI application targeting Android and iOS.
 
-Below, you'll find the basic build procedures, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [client-side .NET SDK reference guide](https://docs.launchdarkly.com/sdk/client-side/dotnet).
+Below, you'll find the build procedures. For more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or
+the [client-side .NET SDK reference guide](https://docs.launchdarkly.com/sdk/client-side/dotnet).
 
-## Instructions for Android and iOS
+These demos require .NET 8.0 or higher.
 
-The Android and iOS demos require Visual Studio to build and run. For iOS, besides Visual Studio you must also have [Xcode](https://developer.apple.com/xcode/). You can run either on a real device or a simulator.
+## Console app
 
-These demo apps use Android- and iOS-specific user interface components, rather than Xamarin Forms. The LaunchDarkly SDK in itself has no UI functionality, so in a Xamarin Forms app there would be no difference in how you would use the SDK.
+1. Set the value of the `mobileKey` variable in `DotNetConsoleApp/Program.cs` to your mobile key:
+    ```csharp
+    const string mobileKey = "my-mobile-key";
+    ```
+    Alternatively, set the `LAUNCHDARKLY_MOBILE_KEY` environment variable:
+    ```bash
+    export LAUNCHDARKLY_MOBILE_KEY="my-mobile-key"
+    ```
 
-1. Open `LaunchDarkly.HelloDotNetClient.sln` in Visual Studio.
+2. If there is an existing boolean feature flag in your LaunchDarkly project that
+   you want to evaluate, set `flagKey` to the flag key:
+    ```csharp
+    const string flagKey = "my-flag-key";
+    ```
+    Otherwise, `sample-feature` will be used by default.
 
-2. Edit `Shared/DemoParameters.cs` and set the value of `MobileKey` to your LaunchDarkly SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `FeatureFlagKey` to the flag key.
-
-```csharp
-    public const string MobileKey = "1234567890abcdef";
-
-    public const string FeatureFlagKey = "my-flag";
-```
-
-3. Build and run the `XamarinAndroidApp` or `XamarinIOsApp` project.
-
-You should see the message `"Feature flag '<flag key>' is <true/false> for this context"`.
-
-If you leave the app running and use your LaunchDarkly dashboard to turn the flag off or on, you should see the message change to show the new value, showing how an app can receive live updates.
-
-## Instructions for .NET Core (console)
-
-1. Edit `Shared/DemoParameters` as described above.
-
-2. If you are using Visual Studio, open `LaunchDarkly.HelloDotNetClient.sln` and run the `DotNetConsoleApp` project. Or, to run from the command line, type the following command:
-
-```
+3. On the command line, run:
+    ```bash
     dotnet run --project DotNetConsoleApp
-```
+    ```
+    You should receive the message:
+    > "The sample-feature feature flag evaluates to false."
 
-You should see the message `"Feature flag '<flag key>' is <true/false> for this context"`.
+The application will run continuously and react to the flag changes in LaunchDarkly.
 
-Unlike the Android and iOS demos, the console demo exits immediately, so it does not demonstrate receiving live updates of flags. However, the same streaming update functionality can be used in a long-running .NET Core application just as it would in a mobile app.
+## MAUI app (Android & iOS)
+
+The MAUI app demonstrates LaunchDarkly in a mobile context using .NET MAUI, targeting both Android and iOS from a single project.
+
+1. Install the MAUI workload if you haven't already:
+    ```bash
+    dotnet workload install maui
+    ```
+
+2. Copy the example settings file and set your mobile key:
+    ```bash
+    cp MauiApp/Resources/Raw/appsettings.example.json MauiApp/Resources/Raw/appsettings.json
+    ```
+    Then edit `MauiApp/Resources/Raw/appsettings.json` and set your mobile key:
+    ```json
+    {
+      "MobileKey": "my-mobile-key",
+      "FlagKey": "sample-feature"
+    }
+    ```
+    The `appsettings.json` file is gitignored to prevent committing your key.
+
+3. Build and run:
+    - **Android** (deploy to a connected device or emulator):
+      ```bash
+      dotnet build MauiApp -f net8.0-android -t:Run
+      ```
+    - **iOS** (requires macOS with Xcode; deploy to a simulator):
+      ```bash
+      dotnet build MauiApp -f net8.0-ios -t:Run
+      ```
+
+The app displays the current value of the feature flag. The background color changes from dark (#373841) to green (#00844B) when the flag evaluates to true. The app reacts to flag changes in real time.
