@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **These examples have moved.** The client-side .NET SDK examples now live in the [examples-dotnet repository](https://github.com/launchdarkly/examples-dotnet). This repository remains to support legacy references.
+
 # LaunchDarkly sample .NET client-side application
 
 We've built simple demo applications that demonstrate how the LaunchDarkly client-side .NET SDK works. There are two demos:
